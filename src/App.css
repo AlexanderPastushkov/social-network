@@ -64,7 +64,7 @@ h6 {
 }
 .nav {
   grid-area: n;
-  background-color: rgb(83, 166, 238);
+  background-color: rgb(83, 238, 88);
 }
 .content {
   grid-area: c;
