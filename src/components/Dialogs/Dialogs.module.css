@@ -1,7 +1,13 @@
 .dialogs {
   display: grid;
   grid-template-columns: 2fr 10fr;
+  color: #fff;
+  padding: 10px;
 }
 .dialogsItems {
-  padding: 15px;
+}
+.messages {
+}
+.dialog {
+  margin-right: 10px;
 }

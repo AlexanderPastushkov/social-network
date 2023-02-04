@@ -60,17 +60,10 @@ h6 {
 }
 .wrapper_content {
   background-color: rgb(13, 98, 255);
+  grid-area: c;
 }
 
 .header {
   grid-area: h;
   background-color: rgb(116, 96, 242);
-}
-.nav {
-  grid-area: n;
-  background-color: rgb(83, 238, 88);
-}
-.content {
-  grid-area: c;
-  background-color: rgb(13, 98, 255);
 }

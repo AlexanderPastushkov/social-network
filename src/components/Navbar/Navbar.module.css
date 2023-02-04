@@ -1,8 +1,5 @@
-.nav {
-  background-color: rgb(244, 200, 200);
-}
 .active {
-  color: rgb(75, 186, 255);
+  color: rgb(54, 100, 129);
 }
 .item {
   color: #fff;
@@ -10,4 +7,8 @@
 }
 .item:hover {
   color: rgb(239, 151, 151);
+}
+.nav {
+  grid-area: n;
+  background-color: rgb(83, 163, 238);
 }

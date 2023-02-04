@@ -10,7 +10,7 @@ const Navbar = () => {
         </NavLink>
       </div>
       <div>
-        <NavLink to="/messages" className={activeLink}>
+        <NavLink to="/dialogs" className={activeLink}>
           Messages
         </NavLink>
       </div>
