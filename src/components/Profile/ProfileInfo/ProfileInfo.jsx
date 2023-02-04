@@ -5,7 +5,7 @@ const ProfileInfo = () => {
       <div>
         <img src="" alt="" />
       </div>
-      <div>ava + description</div>
+      <div>ava + descriptionsss</div>
     </div>
   );
 };
