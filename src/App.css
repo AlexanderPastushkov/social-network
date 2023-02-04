@@ -47,7 +47,7 @@ h6 {
 
 /* ======================================================================= */
 
-.app-wrapper {
+.wrapper {
   margin: 0 auto;
   max-width: 1200px;
   display: grid;
@@ -58,6 +58,10 @@ h6 {
   grid-template-columns: 2fr 10fr;
   color: #fff;
 }
+.wrapper_content {
+  background-color: rgb(13, 98, 255);
+}
+
 .header {
   grid-area: h;
   background-color: rgb(116, 96, 242);

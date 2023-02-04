@@ -1,0 +1,13 @@
+.nav {
+  background-color: rgb(244, 200, 200);
+}
+.active {
+  color: rgb(75, 186, 255);
+}
+.item {
+  color: #fff;
+  transition: all 0.3s ease 0s;
+}
+.item:hover {
+  color: rgb(239, 151, 151);
+}
