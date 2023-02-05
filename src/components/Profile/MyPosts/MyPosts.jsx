@@ -1,14 +1,13 @@
 import s from "./MyPosts.module.css";
 import Post from "./Post/Post";
-
+// let postsData = [
+//   { id: 1, message: "Hi , it is my first post", likeCount: 10 },
+//   { id: 1, message: "Hi , it is my second post", likeCount: 12 },
+//   { id: 1, message: "Hi , it is my third post", likeCount: 14 },
+// ];
 const MyPosts = (props) => {
-  let postsData = [
-    { id: 1, message: "Hi , it is my first post", likeCount: 10 },
-    { id: 1, message: "Hi , it is my second post", likeCount: 12 },
-    { id: 1, message: "Hi , it is my third post", likeCount: 14 },
-  ];
-  let postsElements = postsData.map((p) => (
-    <Post message={p.message} likeCount={p.likeCount} />
+  let postsElements = props.postsData.map((p) => (
+    <Post mes={p.message} like={p.likeCount} />
   ));
 
   return (
