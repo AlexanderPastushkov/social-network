@@ -1,5 +1,5 @@
 .active {
-  color: rgb(54, 100, 129);
+  color: rgb(57, 201, 187);
 }
 .item {
   color: #fff;
@@ -10,5 +10,10 @@
 }
 .nav {
   grid-area: n;
-  background-color: rgb(83, 163, 238);
+  background-color: rgb(35, 89, 139);
+  height: 100vh;
+  padding: 10px;
+}
+.navbar {
+  margin-top: 20px;
 }

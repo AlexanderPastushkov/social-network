@@ -5,7 +5,14 @@ const ProfileInfo = () => {
       <div>
         <img src="" alt="" />
       </div>
-      <div>ava + descriptionsss</div>
+      <div>
+        <img
+          className={s.avatarka}
+          src="https://bipbap.ru/wp-content/uploads/2022/11/1652235719_20-kartinkin-net-p-prikolnie-kartinki-dlya-stima-21.jpg"
+          alt="ava"
+        />
+        descriptionsss
+      </div>
     </div>
   );
 };

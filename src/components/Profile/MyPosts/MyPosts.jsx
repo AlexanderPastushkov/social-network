@@ -1,17 +1,37 @@
 import s from "./MyPosts.module.css";
 import Post from "./Post/Post";
-// let postsData = [
-//   { id: 1, message: "Hi , it is my first post", likeCount: 10 },
-//   { id: 1, message: "Hi , it is my second post", likeCount: 12 },
-//   { id: 1, message: "Hi , it is my third post", likeCount: 14 },
-// ];
+import React from "react";
+
 const MyPosts = (props) => {
   let postsElements = props.postsData.map((p) => (
     <Post mes={p.message} like={p.likeCount} />
   ));
+  let newPostElement = React.createRef();
 
+  let addPost = () => {
+    props.addPost(); //add post to bll
+  };
+  let onPostChange = () => {
+    let text = newPostElement.current.value;
+    props.updateNewPostText(text); //update post in state(bll)
+  };
   return (
     <div className={s.myPosts_items}>
+      <h3>My posts</h3>
+      <div>
+        <div>
+          <textarea
+            onChange={onPostChange}
+            ref={newPostElement}
+            value={props.newPostText} //in props we get value which click on keyboard
+          />
+        </div>
+        <div>
+          <button onClick={addPost} className={s.btn}>
+            Add post
+          </button>
+        </div>
+      </div>
       <div className={s.posts}>{postsElements}</div>
     </div>
   );
