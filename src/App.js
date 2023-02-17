@@ -12,52 +12,47 @@ import Friends from "./components/Friends/Friends";
 //получаем пропсы от родителя index.js
 const App = (props) => {
   return (
-    <BrowserRouter>
-      <div className="wrapper">
-        <Header />
-        <Navbar sidebarFriends={props.appState.sidebar.sidebarFriends} />
-        <div className="wrapper_content ">
-          <Routes>
-            <Route
-              path="/profile"
-              element={
-                <Profile
-                  profilePage={props.appState.profilePage}
-                  addPost={props.addPost}
-                  updateNewPostText={props.updateNewPostText}
-                />
-              }
-            />
-            <Route
-              path="/dialogs"
-              element={
-                <Dialogs
-                  dialogsData={props.appState.messagesPage.dialogsData}
-                  messagesPage={props.appState.messagesPage}
-                  updateNewMessageText={props.updateNewMessageText}
-                  addMessage={props.addMessage}
-                />
-              }
-            />
-            <Route
-              path="/news"
-              element={<News news={props.appState.newsPage.newsData} />}
-            />
-            <Route
-              path="/music"
-              element={<Music mus={props.appState.musicPage.musicData} />}
-            />
-            <Route path="/settings" element={<Set />} />
-            <Route
-              path="/friends"
-              element={
-                <Friends friends={props.appState.friendsPage.friendsData} />
-              }
-            />
-          </Routes>
-        </div>
+    <div className="wrapper">
+      <Header />
+      <Navbar sidebarFriends={props.state.sidebar.sidebarFriends} />
+      <div className="wrapper_content ">
+        <Routes>
+          <Route
+            path="/profile"
+            element={
+              <Profile
+                profilePage={props.state.profilePage}
+                dispatch={props.dispatch}
+              />
+            }
+          />
+          <Route
+            path="/dialogs"
+            element={
+              <Dialogs
+                dialogsData={props.state.dialogsPage.dialogsData}
+                dialogsPage={props.state.dialogsPage}
+                dispatch={props.dispatch}
+                store={props.store}
+              />
+            }
+          />
+          <Route
+            path="/news"
+            element={<News news={props.state.newsPage.newsData} />}
+          />
+          <Route
+            path="/music"
+            element={<Music mus={props.state.musicPage.musicData} />}
+          />
+          <Route path="/settings" element={<Set />} />
+          <Route
+            path="/friends"
+            element={<Friends friends={props.state.friendsPage.friendsData} />}
+          />
+        </Routes>
       </div>
-    </BrowserRouter>
+    </div>
   );
 };
 

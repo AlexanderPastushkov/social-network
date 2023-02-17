@@ -1,6 +1,10 @@
 import s from "./MyPosts.module.css";
 import Post from "./Post/Post";
 import React from "react";
+import {
+  addPostCreator,
+  updateNewPostTextCreator,
+} from "../../../redux/state.js";
 
 const MyPosts = (props) => {
   let postsElements = props.postsData.map((p) => (
@@ -9,11 +13,11 @@ const MyPosts = (props) => {
   let newPostElement = React.createRef();
 
   let addPost = () => {
-    props.addPost(); //add post to bll
+    props.dispatch(addPostCreator()); //add post to bll
   };
   let onPostChange = () => {
     let text = newPostElement.current.value;
-    props.updateNewPostText(text); //update post in state(bll)
+    props.dispatch(updateNewPostTextCreator(text)); //update post in state(bll)
   };
   return (
     <div className={s.myPosts_items}>
@@ -21,7 +25,7 @@ const MyPosts = (props) => {
       <div>
         <div>
           <textarea
-            onChange={onPostChange}
+            onChange={onPostChange} //callback
             ref={newPostElement}
             value={props.newPostText} //in props we get value which click on keyboard
           />
