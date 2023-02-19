@@ -1,7 +1,10 @@
-const ADD_POST = "ADD-POST";
-const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
-const UPDATE_NEW_MESSAGE_BODY = "UPDATE-NEW-MESSAGE-BODY";
-const ADD_MESSAGE = "ADD-MESSAGE";
+import dialogsReducer from "./dialogs-reducer";
+import friendsReducer from "./friends-reducer";
+import musicReducer from "./music-reducer";
+import newsReducer from "./news-reducer";
+import profileReducer from "./profile-reducer";
+import sidebarReducer from "./sidebar-reducer";
+
 let store = {
   _state: {
     profilePage: {
@@ -75,56 +78,21 @@ let store = {
   //========================================================================================================================================================
 
   dispatch(action) {
-    if (action.type === ADD_POST) {
-      let newPost = {
-        id: 5,
-        message: this._state.profilePage.newPostText,
-        likesCount: 0,
-      };
-      this._state.profilePage.postsData.push(newPost);
-      this._state.profilePage.newPostText = "";
-      this._callSubscriber(this._state);
-    } else if (action.type === UPDATE_NEW_POST_TEXT) {
-      this._state.profilePage.newPostText = action.newText;
-      this._callSubscriber(this._state);
-    } else if (action.type === ADD_MESSAGE) {
-      let newMessage = this._state.dialogsPage.newMessageBody;
-      this._state.dialogsPage.messagesData.push({ id: 6, message: newMessage });
-      this._state.dialogsPage.newMessageBody = "";
-      this._callSubscriber(this._state);
-    } else if (action.type === UPDATE_NEW_MESSAGE_BODY) {
-      this._state.dialogsPage.newMessageBody = action.entireMessage;
-      this._callSubscriber(this._state);
-    }
+    this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action);
+    this._state.profilePage = profileReducer(this._state.profilePage, action);
+    this._state.sidebar = sidebarReducer(this._state.sidebar, action);
+    this._state.musicPage = musicReducer(this._state.musicPage, action);
+    this._state.friendsPage = friendsReducer(this._state.friendsPage, action);
+    this._state.newsPage = newsReducer(this._state.newsPage, action);
+
+    this._callSubscriber(this._state);
   },
 };
 
 //========================================================================================================================================================
 
-export const addPostCreator = () => {
-  return {
-    type: ADD_POST,
-  };
-};
-export const updateNewPostTextCreator = (text) => {
-  return {
-    type: UPDATE_NEW_POST_TEXT,
-    newText: text,
-  };
-};
-
 //========================================================================================================================================================
-export const addMessageCreator = () => {
-  return {
-    type: ADD_MESSAGE,
-  };
-};
-export const updateMessageBodyCreator = (body) => {
-  return {
-    type: UPDATE_NEW_MESSAGE_BODY,
-    entireMessage: body,
-  };
-};
+
 //========================================================================================================================================================
 
 window.store = store;

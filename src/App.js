@@ -9,6 +9,7 @@ import News from "./components/News/News";
 import Set from "./components/Set/Set";
 import Music from "./components/Music/Music";
 import Friends from "./components/Friends/Friends";
+import DialogsContainer from "./components/Dialogs/DialogsContainer";
 //получаем пропсы от родителя index.js
 const App = (props) => {
   return (
@@ -17,27 +18,12 @@ const App = (props) => {
       <Navbar sidebarFriends={props.state.sidebar.sidebarFriends} />
       <div className="wrapper_content ">
         <Routes>
-          <Route
-            path="/profile"
-            element={
-              <Profile
-                profilePage={props.state.profilePage}
-                dispatch={props.dispatch}
-              />
-            }
-          />
+          <Route path="/profile" element={<Profile store={props.store} />} />
           <Route
             path="/dialogs"
-            element={
-              <Dialogs
-                dialogsData={props.state.dialogsPage.dialogsData}
-                dialogsPage={props.state.dialogsPage}
-                dispatch={props.dispatch}
-                store={props.store}
-              />
-            }
+            element={<DialogsContainer store={props.store} />}
           />
-          <Route
+          {/* <Route
             path="/news"
             element={<News news={props.state.newsPage.newsData} />}
           />
@@ -49,7 +35,7 @@ const App = (props) => {
           <Route
             path="/friends"
             element={<Friends friends={props.state.friendsPage.friendsData} />}
-          />
+          /> */}
         </Routes>
       </div>
     </div>

@@ -3,13 +3,9 @@ import DialogItem from "./DialogItem/DialogsItem";
 import s from "./Dialogs.module.css";
 import Message from "./Message/Message";
 import React from "react";
-import {
-  addMessageCreator,
-  updateMessageBodyCreator,
-} from "../../redux/state.js";
 
 const Dialogs = (props) => {
-  let state = props.store.getState().dialogsPage;
+  let state = props.dialogsPage;
   let dialogsElements = state.dialogsData.map((d) => (
     <DialogItem name={d.name} id={d.id} />
   ));
@@ -18,12 +14,13 @@ const Dialogs = (props) => {
   ));
 
   let addMessage = () => {
-    props.dispatch(addMessageCreator());
+    props.addMessage();
   };
 
   let onMessageChange = (e) => {
     let body = e.target.value;
-    props.dispatch(updateMessageBodyCreator(body)); //update message in state(bll) FLUX
+    props.onMessageChange(body);
+    //update message in state(bll) FLUX
   };
   return (
     <div className={s.dialogs}>
@@ -34,7 +31,7 @@ const Dialogs = (props) => {
           <textarea
             placeholder="Enter your message"
             onChange={onMessageChange} //updating state (bll) FLUX
-            value={props.dialogsPage.newMessageBody}
+            value={state.newMessageBody}
           ></textarea>
         </div>
         <div>
