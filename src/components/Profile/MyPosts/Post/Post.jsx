@@ -10,7 +10,7 @@ const Post = (props) => {
       />
       {props.mes}
       <div>
-        <span>like{props.like}</span>
+        <span>like {props.like}</span>
       </div>
     </div>
   );

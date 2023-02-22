@@ -19,18 +19,6 @@ let initialState = {
   newMessageBody: "",
 };
 
-export const addMessageCreator = () => {
-  return {
-    type: ADD_MESSAGE,
-  };
-};
-export const updateMessageBodyCreator = (body) => {
-  return {
-    type: UPDATE_NEW_MESSAGE_BODY,
-    entireMessage: body,
-  };
-};
-
 const dialogsReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_MESSAGE:
@@ -45,5 +33,15 @@ const dialogsReducer = (state = initialState, action) => {
       return state;
   }
 };
-
+export const addMessageCreator = () => {
+  return {
+    type: ADD_MESSAGE,
+  };
+};
+export const updateMessageBodyCreator = (body) => {
+  return {
+    type: UPDATE_NEW_MESSAGE_BODY,
+    entireMessage: body,
+  };
+};
 export default dialogsReducer;

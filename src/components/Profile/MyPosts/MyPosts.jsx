@@ -23,7 +23,7 @@ const MyPosts = (props) => {
           <textarea
             onChange={onPostChange} //callback
             ref={newPostElement}
-            value={props.newPostText} //in props we get value which click on keyboard
+            value={props.newPostText} //in props we get value which entered on keyboard
           />
         </div>
         <div>
