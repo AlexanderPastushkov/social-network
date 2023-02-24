@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import s from "./Navbar.module.css";
-import SidebarFriends from "./Sidebar/SidebarFriends/SidebarFriends";
+
 const activeLink = ({ isActive }) => (isActive ? s.active : s.item);
 const Navbar = (props) => {
   // console.log(props.sidebarFriends); array
@@ -16,12 +16,12 @@ const Navbar = (props) => {
           Messages
         </NavLink>
       </div>
-      {/* <div>
+      <div>
         <NavLink to="/news" className={activeLink}>
           News
         </NavLink>
       </div>
-      <div>
+      {/* <div>
         <NavLink to="/music" className={activeLink}>
           Music
         </NavLink>
@@ -35,7 +35,6 @@ const Navbar = (props) => {
         <NavLink to="/friends" className={activeLink}>
           Friends
         </NavLink>
-        <SidebarFriends sidebarFriends={props.sidebarFriends} />
       </div> */}
     </nav>
   );

@@ -8,27 +8,34 @@ let initialState = {
     { id: 3, message: "Hi , it is my third post", likeCount: 321 },
     { id: 4, message: "Hi , it is my four post", likeCount: 890 },
   ],
-  newPostText: "",
+  newPostText: "react world",
 };
 
 const profileReducer = (state = initialState, action) => {
   switch (action.type) {
-    case ADD_POST:
+    case ADD_POST: {
       let newPost = {
         id: 5,
         message: state.newPostText,
         likeCount: 0,
       };
-      // state.postsData.push(newPost);
-      // state.newPostText = "";
-      return {
-        ...state,
-        newPostText: "",
-        postsData: [...state.postsData, newPost],
-      };
-    case UPDATE_NEW_POST_TEXT:
-      state.newPostText = action.newText;
-      return state;
+
+      let stateCopy = { ...state }; //shallow copy state
+      stateCopy.postsData = [...state.postsData]; //deep copy array
+      stateCopy.postsData.push(newPost); //push obj to stateCopy
+      stateCopy.newPostText = ""; //clean value in stateCopy
+      return stateCopy; //return new state
+    }
+    // return {
+    //   ...state,
+    //   newPostText: "",
+    //   postsData: [...state.postsData, newPost],
+    // };
+    case UPDATE_NEW_POST_TEXT: {
+      let stateCopy = { ...state };
+      stateCopy.newPostText = action.newText;
+      return stateCopy;
+    }
     default:
       return state;
   }

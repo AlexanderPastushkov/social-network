@@ -1,11 +1,14 @@
-// import s from "./SidebarFriends.module.css";
-// import SidebarFriendsItem from "./SidebarFriendsItem/SidebarFriendsItem";
+import s from "./SidebarFriends.module.css";
 
-// const SidebarFriends = (props) => {
-//   let sidebarFriendsElems = props.sidebarFriends.map((el) => (
-//     <SidebarFriendsItem d={el.friend} />
-//   ));
-
-//   return <div className={s.sidebarFriends}>{sidebarFriendsElems}</div>;
-// };
-// export default SidebarFriends;
+const SidebarFriends = (props) => {
+  return (
+    <div className={s.friends}>
+      <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+      </ul>
+    </div>
+  );
+};
+export default SidebarFriends;

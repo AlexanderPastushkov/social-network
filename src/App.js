@@ -4,12 +4,8 @@ import Header from "./components/Header/Header";
 import Navbar from "./components/Navbar/Navbar";
 import Profile from "./components/Profile/Profile";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Dialogs from "./components/Dialogs/Dialogs";
-import News from "./components/News/News";
-import Set from "./components/Set/Set";
-import Music from "./components/Music/Music";
-import Friends from "./components/Friends/Friends";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
+import NewsContainer from "./components/News/NewsContainer";
 //получаем пропсы от родителя index.js
 const App = (props) => {
   return (
@@ -20,11 +16,8 @@ const App = (props) => {
         <Routes>
           <Route path="/profile" element={<Profile />} />
           <Route path="/dialogs" element={<DialogsContainer />} />
+          <Route path="/news" element={<NewsContainer />} />
           {/* <Route
-            path="/news"
-            element={<News news={props.state.newsPage.newsData} />}
-          />
-          <Route
             path="/music"
             element={<Music mus={props.state.musicPage.musicData} />}
           />

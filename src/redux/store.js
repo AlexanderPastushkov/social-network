@@ -41,6 +41,7 @@ let store = {
         { id: 4, word: "how are you", number: 15 },
         { id: 5, word: "hello", number: 12 },
       ],
+      newNewsText: "random",
     },
     musicPage: {
       musicData: [
