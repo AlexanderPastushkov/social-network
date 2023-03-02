@@ -1,0 +1,44 @@
+.img {
+  width: 100px;
+}
+.btn {
+  background-color: #07cfa0;
+  padding: 10px;
+  font-size: 18px;
+  font-weight: 700;
+  transition: all 0.3s ease 0s;
+  width: 100px;
+}
+.btn:hover {
+  background-color: #17917c;
+}
+.usersItems {
+  display: flex;
+}
+.userInfo {
+  display: block;
+  padding: 15px;
+}
+.userLocation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 15px;
+}
+.userCountry {
+}
+.userCity {
+}
+.btn1 {
+  background-color: #07cfa0;
+  padding: 10px;
+  font-size: 18px;
+  font-weight: 700;
+  transition: all 0.3s ease 0s;
+  width: 300px;
+}
+
+.btn1:hover {
+  background-color: #17917c;
+}

@@ -3,7 +3,7 @@ import NewsContent from "./NewsContent/NewsContent";
 
 const News = (props) => {
   let newsElements = props.news.map((n) => (
-    <NewsContent words={n.word} numbers={n.number} />
+    <NewsContent words={n.word} key={n.id} />
   ));
   let onAddNews = () => {
     props.addNews();

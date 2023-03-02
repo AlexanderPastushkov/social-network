@@ -7,10 +7,10 @@ import React from "react";
 const Dialogs = (props) => {
   let state = props.dialogsPage; //здесь пришел наш объект с двумя массивами, которые наде преобразовать "мапить"
   let dialogsElements = state.dialogsData.map((d) => (
-    <DialogItem name={d.name} id={d.id} />
+    <DialogItem name={d.name} id={d.id} key={d.id} />
   ));
   let messagesElements = state.messagesData.map((m) => (
-    <Message message={m.message} />
+    <Message message={m.message} key={m.id} />
   ));
 
   let addMessage = () => {

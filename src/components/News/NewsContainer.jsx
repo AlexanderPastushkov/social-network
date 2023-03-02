@@ -4,7 +4,7 @@ import News from "./News";
 
 let mapStateToProps = (state) => {
   return {
-    news: state.newsPage.newsData, //object - key:dialogsPage (идет в название пропса в Dialogs),value:state.dialogsPage(объект с массивами [dialogsData] [messagesData])
+    news: state.newsPage.newsData, //object - key:news(идет в название пропса в News),value:state.newsPage(объект с массивами [newsData]
     newsValue: state.newsPage.newNewsText,
   };
 };

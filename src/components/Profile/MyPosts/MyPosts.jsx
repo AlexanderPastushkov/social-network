@@ -3,16 +3,15 @@ import Post from "./Post/Post";
 import React from "react";
 const MyPosts = (props) => {
   let postsElements = props.postsData.map((p) => (
-    <Post mes={p.message} like={p.likeCount} />
+    <Post mes={p.message} like={p.likeCount} key={p.id} />
   ));
-  let newPostElement = React.createRef();
 
   let onAddPost = () => {
     props.addPost();
     //add post to bll
   };
-  let onPostChange = () => {
-    let text = newPostElement.current.value;
+  let onPostChange = (e) => {
+    let text = e.target.value;
     props.updateNewPostText(text); //update post in state(bll)
   };
   return (
@@ -21,10 +20,9 @@ const MyPosts = (props) => {
       <div>
         <div>
           <textarea
-            onChange={onPostChange} //callback
-            ref={newPostElement}
-            value={props.newPostText} //in props we get value which entered on keyboard
-          />
+            onChange={onPostChange}
+            value={props.newPostText}
+          ></textarea>
         </div>
         <div>
           <button onClick={onAddPost} className={s.btn}>

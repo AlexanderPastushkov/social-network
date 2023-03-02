@@ -21,6 +21,11 @@ const Navbar = (props) => {
           News
         </NavLink>
       </div>
+      <div>
+        <NavLink to="/users" className={activeLink}>
+          Find USERS
+        </NavLink>
+      </div>
       {/* <div>
         <NavLink to="/music" className={activeLink}>
           Music
