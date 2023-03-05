@@ -26,11 +26,12 @@ const Navbar = (props) => {
           Find USERS
         </NavLink>
       </div>
-      {/* <div>
+      <div>
         <NavLink to="/music" className={activeLink}>
           Music
         </NavLink>
       </div>
+      {/* 
       <div>
         <NavLink to="/settings" className={activeLink}>
           Settings
