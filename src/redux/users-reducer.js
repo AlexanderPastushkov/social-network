@@ -1,10 +1,14 @@
 const FOLLOW = "FOLLOW";
 const UNFOLLOW = "UNFOLLOW";
 const SET_USERS = "SET-USERS";
-const BUT_CHAMP = "BUT_CHAMP";
+const SET_CURRENT_PAGE = "SET_CURRENT_PAGE";
+const SET_TOTAL_COUNT = "SET_TOTAL_COUNT";
 
 let initialState = {
   users: [],
+  pageSize: 20,
+  totalUsersCount: 0,
+  currentPage: 1,
 };
 
 const usersReducer = (state = initialState, action) => {
@@ -36,7 +40,11 @@ const usersReducer = (state = initialState, action) => {
     }
 
     case SET_USERS:
-      return { ...state, users: [...state.users, ...action.users] }; //склеиваем два массива добавляем юзеров
+      return { ...state, users: action.users }; //склеиваем два массива добавляем юзеров
+    case SET_CURRENT_PAGE:
+      return { ...state, currentPage: action.currentPage };
+    case SET_TOTAL_COUNT:
+      return { ...state, totalUsersCount: action.totalUsersCount };
     default:
       return state;
   }
@@ -58,6 +66,18 @@ export const setUsersAC = (users) => {
   return {
     type: SET_USERS,
     users,
+  };
+};
+export const setCurrentPageAC = (currentPage) => {
+  return {
+    type: SET_CURRENT_PAGE,
+    currentPage,
+  };
+};
+export const setTotalUsersCountAC = (totalUsersCount) => {
+  return {
+    type: SET_TOTAL_COUNT,
+    totalUsersCount,
   };
 };
 export default usersReducer;

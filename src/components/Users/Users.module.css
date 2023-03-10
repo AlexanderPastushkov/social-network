@@ -28,3 +28,17 @@
 .follow {
   margin-bottom: 10px;
 }
+
+.selectedPage {
+  font-weight: bold;
+  cursor: pointer;
+}
+.nonSelected {
+  color: #37e3c9;
+  cursor: pointer;
+}
+.pagination {
+  cursor: pointer;
+  display: flex;
+  gap: 10px;
+}
