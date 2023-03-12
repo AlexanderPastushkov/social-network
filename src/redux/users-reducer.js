@@ -40,7 +40,7 @@ const usersReducer = (state = initialState, action) => {
     }
 
     case SET_USERS:
-      return { ...state, users: action.users }; //склеиваем два массива добавляем юзеров
+      return { ...state, users: action.users };
     case SET_CURRENT_PAGE:
       return { ...state, currentPage: action.currentPage };
     case SET_TOTAL_COUNT:
