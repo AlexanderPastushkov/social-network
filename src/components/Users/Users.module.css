@@ -41,4 +41,8 @@
   cursor: pointer;
   display: flex;
   gap: 10px;
+  padding: 15px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }

@@ -10,10 +10,13 @@ const Users = (props) => {
   for (let i = 1; i <= pagesCount; i++) {
     pages.push(i);
   }
-  let curP = props.currentPage;
-  let curPF = curP - 5 < 0 ? 0 : curP - 5;
-  let curPL = curP + 5;
-  let slicedPages = pages.slice(curPF, curPL);
+  let slicedPages;
+  let curPage = props.currentPage;
+  if (curPage - 3 < 0) {
+    slicedPages = pages.slice(0, 5);
+  } else {
+    slicedPages = pages.slice(curPage - 3, curPage + 2);
+  }
   return (
     <div>
       <div className={s.pagination}>
