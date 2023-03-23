@@ -1,17 +1,29 @@
+import Preloader from "../../Common/Preloader/Pleloader";
 import s from "./ProfileInfo.module.css";
-const ProfileInfo = () => {
+import lookingForJob from "../../../images/job.jfif";
+import trustMe from "../../../images/trustMe.jpg";
+const ProfileInfo = (props) => {
+  if (!props.profile) {
+    return <Preloader />;
+  }
   return (
     <div className={s.profile_items}>
       <div>
-        <img src="" alt="" />
-      </div>
-      <div>
-        <img
-          className={s.avatarka}
-          src="https://bipbap.ru/wp-content/uploads/2022/11/1652235719_20-kartinkin-net-p-prikolnie-kartinki-dlya-stima-21.jpg"
-          alt="ava"
-        />
-        descriptionsss
+        <div>{props.profile.aboutMe}</div>
+        <div>{props.profile?.fullName}</div>
+        <div>{props.profile?.contacts?.vk}</div>
+        <div className={s.image}>
+          <img
+            src={props.profile?.lookingForAJob ? lookingForJob : trustMe}
+            alt="looking for job"
+            className={s.img}
+          />
+          <div>{props.profile?.lookingForAJobDescription}</div>
+        </div>
+
+        <div>
+          <img src={props.profile?.photos?.large} alt="photo" />
+        </div>
       </div>
     </div>
   );

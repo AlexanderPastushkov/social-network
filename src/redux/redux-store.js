@@ -1,4 +1,5 @@
 import { combineReducers, legacy_createStore } from "redux";
+import authReducer from "./auth-reducer";
 import dialogsReducer from "./dialogs-reducer";
 import musicReducer from "./music-reducer";
 import newsReducer from "./news-reducer";
@@ -13,11 +14,12 @@ let reducers = combineReducers({
   newsPage: newsReducer,
   usersPage: usersReducer,
   musicPage: musicReducer,
+  auth: authReducer,
 });
 
 let store = legacy_createStore(reducers);
 window.store = store;
 
-export default store;
+export default store; //export to Provider
 
 //========================================================================================================================================================
