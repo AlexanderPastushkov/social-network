@@ -36,12 +36,12 @@ const dialogsReducer = (state = initialState, action) => {
       return state;
   }
 };
-export const addMessageCreator = () => {
+export const addMessage = () => {
   return {
     type: ADD_MESSAGE,
   };
 };
-export const updateMessageBodyCreator = (body) => {
+export const updateMessageBody = (body) => {
   return {
     type: UPDATE_NEW_MESSAGE_BODY,
     entireMessage: body,

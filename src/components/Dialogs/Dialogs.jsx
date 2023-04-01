@@ -6,20 +6,29 @@ import React from "react";
 
 const Dialogs = (props) => {
   let state = props.dialogsPage; //здесь пришел наш объект с двумя массивами, которые наде преобразовать "мапить"
+
   let dialogsElements = state.dialogsData.map((d) => (
-    <DialogItem name={d.name} id={d.id} key={d.id} />
+    <div className={s.dialog}>
+      <NavLink to={"/dialogs/" + d.id}>
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRwZsyf5DxP_1f2efMNz_jBvlAeytorE4Ac65wwMk3jsPl8M68875c3VNwCZPRfVPCWuo&usqp=CAU"
+          alt="image"
+        />
+        {d.name}
+      </NavLink>
+    </div>
   ));
   let messagesElements = state.messagesData.map((m) => (
-    <Message message={m.message} key={m.id} />
+    <div className={s.dialog}>{m.message}</div>
   ));
 
   let addMessage = () => {
-    props.onSendMessageCLick(); //пришел колбэк, который будет диспатчить наш экшн( клик по кнопке "Send" ) в dialogs-reducer, чтобы изменить старый стейт
+    props.addMessage(); //пришел колбэк, который будет диспатчить наш экшн( клик по кнопке "Send" ) в dialogs-reducer, чтобы изменить старый стейт
   };
 
-  let onMessageChange = (e) => {
+  let updateMessageBody = (e) => {
     let body = e.target.value;
-    props.onMessageChange(body); //пришел колбэк, который будет диспатчить наш экшн( изменение textarea ) в dialogs-reducer, чтобы изменить старый стейт
+    props.updateMessageBody(body); //пришел колбэк, который будет диспатчить наш экшн( изменение textarea ) в dialogs-reducer, чтобы изменить старый стейт
     //update message in state(bll) FLUX
   };
   return (
@@ -30,7 +39,7 @@ const Dialogs = (props) => {
         <div>
           <textarea
             placeholder="Enter your message"
-            onChange={onMessageChange} //updating state (bll) FLUX
+            onChange={updateMessageBody} //updating state (bll) FLUX
             value={state.newMessageBody} //тут значение сначала по-умолчанию,которое в initialState,далее зачищается
           ></textarea>
         </div>

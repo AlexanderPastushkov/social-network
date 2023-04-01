@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import { setUserProfile } from "../../redux/profile-reducer";
 import Preloader from "../Common/Preloader/Pleloader";
 import Profile from "./Profile";
+
 export function withRouter(Children) {
   return (props) => {
     const match = { params: useParams() };
@@ -14,12 +15,11 @@ export function withRouter(Children) {
 class ProfileContainer extends React.Component {
   render() {
     console.log(this.props);
-    let obj1 = { ...this.props };
-    console.log(obj1);
-    return <Profile {...obj1} profile={this.props.profile} />;
+    return <Profile {...this.props} />;
   }
   componentDidMount() {
     let userId = this.props.match.params.userId;
+    console.log(userId);
     if (!userId) {
       userId = 2;
     }

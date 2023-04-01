@@ -13,7 +13,6 @@ class HeaderContainer extends React.Component {
         withCredentials: true,
       })
       .then((response) => {
-        console.log(response);
         if (response.data.resultCode === 0) {
           let { id, login, email } = response.data.data; //здесь порядок смотрим в консоли как пришли данные
           this.props.setUserData(id, email, login); //здесь порядок смотрим как указали в редьюсере

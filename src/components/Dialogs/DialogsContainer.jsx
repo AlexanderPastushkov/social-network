@@ -1,7 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
 import {
+  addMessage,
   addMessageCreator,
+  updateMessageBody,
   updateMessageBodyCreator,
 } from "../../redux/dialogs-reducer";
 import Dialogs from "./Dialogs";
@@ -11,18 +13,11 @@ let mapStateToProps = (state) => {
     dialogsPage: state.dialogsPage, //object - key:dialogsPage (идет в название пропса в Dialogs),value:state.dialogsPage(объект с массивами [dialogsData] [messagesData])
   };
 };
-let mapDispatchToProps = (dispatch) => {
-  return {
-    onSendMessageCLick: () => {
-      dispatch(addMessageCreator()); //dispatch our action, which has been created by addMessageCreator
-    },
-    onMessageChange: (body) => {
-      dispatch(updateMessageBodyCreator(body));
-    },
-  };
-};
 
-const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs); //we connect our data to store and make container component
+const DialogsContainer = connect(mapStateToProps, {
+  addMessage,
+  updateMessageBody,
+})(Dialogs); //we connect our data to store and make container component
 export default DialogsContainer;
 
 // const DialogsContainer = (props) => {
