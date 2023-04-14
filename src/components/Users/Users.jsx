@@ -2,8 +2,6 @@ import React from "react";
 import s from "./Users.module.css";
 import image from "../../assets/Images/images.png";
 import { NavLink } from "react-router-dom";
-import axios from "axios";
-import { followAPI } from "../../api/api";
 
 const Users = (props) => {
   let pagesCount = Math.ceil(
@@ -61,13 +59,7 @@ const Users = (props) => {
                       (id) => id === u.id
                     )} //если кто-нибудь из этого массива равен айдишке тогда метод some ->true
                     onClick={() => {
-                      props.toggleFollowingProgress(true, u.id);
-                      followAPI.unfollowUsers(u.id).then((data) => {
-                        if (data.resultCode === 0) {
-                          props.unfollow(u.id);
-                        }
-                        props.toggleFollowingProgress(false, u.id);
-                      });
+                      props.unfollow(u.id);
                     }}
                   >
                     Unfollow
@@ -77,13 +69,7 @@ const Users = (props) => {
                     disabled={props.followingInProgress.includes(u.id)} //можно и через includes
                     className={s.btn}
                     onClick={() => {
-                      props.toggleFollowingProgress(true, u.id);
-                      followAPI.followUsers(u.id).then((data) => {
-                        if (data.resultCode === 0) {
-                          props.follow(u.id);
-                        }
-                        props.toggleFollowingProgress(false, u.id);
-                      });
+                      props.follow(u.id);
                     }}
                   >
                     Follow

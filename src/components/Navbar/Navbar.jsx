@@ -1,9 +1,8 @@
 import { NavLink } from "react-router-dom";
 import s from "./Navbar.module.css";
 
-const activeLink = ({ isActive }) => (isActive ? s.active : s.item);
+const activeLink = ({ isActive }) => (isActive ? s.active : s.item); //isActive - atribute of Navlink
 const Navbar = (props) => {
-  // console.log(props.sidebarFriends); array
   return (
     <nav className={s.nav}>
       <div>

@@ -1,7 +1,5 @@
 import { NavLink } from "react-router-dom";
-import DialogItem from "./DialogItem/DialogsItem";
 import s from "./Dialogs.module.css";
-import Message from "./Message/Message";
 import React from "react";
 
 const Dialogs = (props) => {
@@ -31,6 +29,7 @@ const Dialogs = (props) => {
     props.updateMessageBody(body); //пришел колбэк, который будет диспатчить наш экшн( изменение textarea ) в dialogs-reducer, чтобы изменить старый стейт
     //update message in state(bll) FLUX
   };
+
   return (
     <div className={s.dialogs}>
       <div className={s.dialogsItems}>{dialogsElements}</div>
