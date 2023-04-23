@@ -2,6 +2,7 @@ import Preloader from "../../Common/Preloader/Pleloader";
 import s from "./ProfileInfo.module.css";
 import lookingForJob from "../../../images/job.jfif";
 import trustMe from "../../../images/trustMe.jpg";
+import ProfileStatus from "./ProfileStatus";
 const ProfileInfo = (props) => {
   if (!props.profile) {
     return <Preloader />;
@@ -23,6 +24,10 @@ const ProfileInfo = (props) => {
 
         <div>
           <img src={props.profile?.photos?.large} alt="photo" />
+          <ProfileStatus
+            status={props.status}
+            updateStatus={props.updateStatus}
+          />
         </div>
       </div>
     </div>

@@ -25,11 +25,28 @@ export const usersAPI = {
     });
   },
   getProfile(userId) {
-    return instance.get(`profile/${userId}`).then((response) => response.data);
+    console.log("Obsolete method. Please use profileAPI object");
+    return profileAPI.getProfile(userId);
   },
 };
 export const authAPI = {
   me() {
     return instance.get("auth/me").then((response) => response.data);
+  },
+};
+
+export const profileAPI = {
+  getProfile(userId) {
+    return instance.get(`profile/${userId}`).then((response) => response.data);
+  },
+  getStatus(userId) {
+    return instance
+      .get(`profile/status/${userId}`)
+      .then((response) => response.data);
+  },
+  updateStatus(status) {
+    return instance
+      .put(`profile/status`, { status: status }) //вместе в put  отправляем объект в котором есть свойство status, так указано в документации
+      .then((response) => response.data);
   },
 };
