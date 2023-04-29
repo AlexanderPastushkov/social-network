@@ -1,0 +1,12 @@
+.formStyle {
+  padding: 15px;
+}
+.form {
+  display: inline-block;
+  background-color: #94eff9;
+  padding: 10px;
+}
+.button {
+  background-color: #70bfcd;
+  padding: 7px;
+}

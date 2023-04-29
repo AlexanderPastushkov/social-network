@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { compose } from "redux";
 import { withAuthRedirect } from "../../hoc/withAuthRedirect";
-import { addMessage, updateMessageBody } from "../../redux/dialogs-reducer";
+import { addMessage } from "../../redux/dialogs-reducer";
 import Dialogs from "./Dialogs";
 
 let mapStateToProps = (state) => {
@@ -14,9 +14,8 @@ let mapStateToProps = (state) => {
 export default compose(
   connect(mapStateToProps, {
     addMessage,
-    updateMessageBody,
-  }),
-  withAuthRedirect
+  })
+  // withAuthRedirect
 )(Dialogs);
 
 //we connect our data to store and make container component

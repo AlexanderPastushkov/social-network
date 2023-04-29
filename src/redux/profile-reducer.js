@@ -1,7 +1,6 @@
 import { profileAPI, usersAPI } from "../api/api";
 
 const ADD_POST = "ADD-POST";
-const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
 const SET_USER_PROFILE = "SET_USER_PROFILE";
 const SET_STATUS = "SET_STATUS";
 
@@ -12,7 +11,7 @@ let initialState = {
     { id: 3, message: "Hi , it is my third post", likeCount: 321 },
     { id: 4, message: "Hi , it is my four post", likeCount: 890 },
   ],
-  newPostText: "react world",
+
   profile: null,
   status: "",
 };
@@ -22,13 +21,13 @@ const profileReducer = (state = initialState, action) => {
     case ADD_POST: {
       let newPost = {
         id: 5,
-        message: state.newPostText,
+        message: action.post,
         likeCount: 0,
       };
 
       return {
         ...state,
-        newPostText: "",
+
         postsData: [...state.postsData, newPost],
       }; //return new state
     }
@@ -37,11 +36,7 @@ const profileReducer = (state = initialState, action) => {
     //   newPostText: "",
     //   postsData: [...state.postsData, newPost],
     // };
-    case UPDATE_NEW_POST_TEXT: {
-      let stateCopy = { ...state };
-      stateCopy.newPostText = action.newText;
-      return stateCopy;
-    }
+
     case SET_USER_PROFILE: {
       return { ...state, profile: action.profile };
     }
@@ -59,9 +54,10 @@ export const setStatus = (status) => {
     status: status,
   };
 };
-export const addPostCreator = () => {
+export const addPost = (post) => {
   return {
     type: ADD_POST,
+    post,
   };
 };
 export const setUserProfile = (profile) => {
@@ -70,12 +66,7 @@ export const setUserProfile = (profile) => {
     profile,
   };
 };
-export const updateNewPostTextCreator = (newText) => {
-  return {
-    type: UPDATE_NEW_POST_TEXT,
-    newText,
-  };
-};
+
 //========================================================================================================================================================
 //thunk
 export const getStatus = (userId) => {
