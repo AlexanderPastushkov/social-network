@@ -8,6 +8,20 @@ const instance = axios.create({
   },
 });
 
+export const authAPI = {
+  me() {
+    return instance.get("auth/me").then((response) => response.data);
+  },
+  login(email, password, rememberMe = false) {
+    return instance
+      .post("auth/login", { email, password, rememberMe }) //request payload email,password,rememberMe ---> according to API docs
+      .then((response) => response.data);
+  },
+  logout() {
+    return instance.delete("auth/login").then((response) => response.data);
+  },
+};
+
 export const usersAPI = {
   getUsers(currentPage, pageSize) {
     return instance
@@ -27,11 +41,6 @@ export const usersAPI = {
   getProfile(userId) {
     console.log("Obsolete method. Please use profileAPI object");
     return profileAPI.getProfile(userId);
-  },
-};
-export const authAPI = {
-  me() {
-    return instance.get("auth/me").then((response) => response.data);
   },
 };
 

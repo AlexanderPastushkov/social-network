@@ -4,7 +4,7 @@ class ProfileStatus extends React.Component {
   state = {
     editMode: false,
     status: this.props.status,
-    // status: "blablabla",
+    // status: "random status",
   };
   componentDidUpdate(prevProps, prevState) {
     if (prevProps.status !== this.props.status) {

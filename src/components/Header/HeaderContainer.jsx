@@ -3,7 +3,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { headerAPI } from "../../api/api";
-import { getAuth, setUserData } from "../../redux/auth-reducer";
+import { getAuth, logout, setUserData } from "../../redux/auth-reducer";
 import Header from "./Header";
 import s from "./Header.module.css";
 
@@ -25,4 +25,5 @@ let mapStateToProps = (state) => {
 export default connect(mapStateToProps, {
   setUserData: setUserData,
   getAuth: getAuth,
+  logout: logout,
 })(HeaderContainer);

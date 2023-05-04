@@ -29,13 +29,8 @@ const profileReducer = (state = initialState, action) => {
         ...state,
 
         postsData: [...state.postsData, newPost],
-      }; //return new state
+      };
     }
-    // return {
-    //   ...state,
-    //   newPostText: "",
-    //   postsData: [...state.postsData, newPost],
-    // };
 
     case SET_USER_PROFILE: {
       return { ...state, profile: action.profile };
@@ -47,7 +42,8 @@ const profileReducer = (state = initialState, action) => {
       return state;
   }
 };
-
+//========================================================================================================================================================
+//action-creators
 export const setStatus = (status) => {
   return {
     type: SET_STATUS,

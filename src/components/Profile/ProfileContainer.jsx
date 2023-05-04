@@ -7,7 +7,6 @@ import { withRouter } from "../../hoc/withRouter";
 import {
   getProfile,
   getStatus,
-  setUserProfile,
   updateStatus,
 } from "../../redux/profile-reducer";
 import Profile from "./Profile";
@@ -42,6 +41,6 @@ export default compose(
     getStatus: getStatus,
     updateStatus: updateStatus,
   }),
-  withRouter
-  // withAuthRedirect
+  withRouter,
+  withAuthRedirect
 )(ProfileContainer);

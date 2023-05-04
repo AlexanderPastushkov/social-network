@@ -110,7 +110,8 @@ export const toggleIsFetching = (isFetching) => {
     isFetching: isFetching,
   };
 };
-
+//========================================================================================================================================================
+//thunk-creators
 export const getUsers = (currentPage, pageSize) => {
   return (dispatch) => {
     dispatch(toggleIsFetching(true));
@@ -123,7 +124,7 @@ export const getUsers = (currentPage, pageSize) => {
         dispatch(setTotalUsersCount(data.totalCount));
       });
   };
-};
+}; //пример замыкания
 
 export const follow = (id) => {
   return (dispatch) => {

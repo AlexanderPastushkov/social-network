@@ -7,3 +7,12 @@
   margin-right: 20px;
   margin-top: 15px;
 }
+.btn {
+  background-color: #04399c;
+  padding: 5px;
+  margin-left: 5px;
+  transition: all 0.3s ease 0s;
+}
+.btn:hover {
+  background-color: #129bf7;
+}

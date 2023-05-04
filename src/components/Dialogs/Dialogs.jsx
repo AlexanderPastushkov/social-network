@@ -2,6 +2,8 @@ import { NavLink } from "react-router-dom";
 import s from "./Dialogs.module.css";
 import React from "react";
 import { Field, reduxForm } from "redux-form";
+import { Textarea } from "../Common/FormsControls/FormsControls";
+import { maxLengthCreator, required } from "../../utils/validators/validators";
 
 const Dialogs = (props) => {
   let dialogsElements = props.dialogsPage.dialogsData.map((d) => (
@@ -36,13 +38,15 @@ const Dialogs = (props) => {
 };
 
 const DialogsForm = (props) => {
+  const maxLength40 = maxLengthCreator(40);
   return (
     <form onSubmit={props.handleSubmit}>
       <div>
         <Field
           placeholder={"Enter your message"}
-          component={"textarea"}
+          component={Textarea}
           name={"message"}
+          validate={[required, maxLength40]}
         />
       </div>
       <div>

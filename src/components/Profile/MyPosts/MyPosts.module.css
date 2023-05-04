@@ -9,3 +9,8 @@
   background-color: rgb(114, 190, 237);
   padding: 5px;
 }
+.postForm {
+  background-color: #a2fbeb;
+  display: inline-block;
+  padding: 10px;
+}
