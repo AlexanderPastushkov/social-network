@@ -6,9 +6,11 @@ import { login, logout } from "../../redux/auth-reducer";
 import { maxLengthCreator, required } from "../../utils/validators/validators";
 import { Input } from "../Common/FormsControls/FormsControls";
 import s from "./Login.module.css";
+import styles from "../Common/FormsControls/FormsControls.module.css";
 
 const LoginForm = (props) => {
   return (
+    // props.handleSubmit появляется после wrap reduxForm и собирает данные в formData
     <form onSubmit={props.handleSubmit} className={s.form}>
       <div>
         <Field
@@ -31,6 +33,9 @@ const LoginForm = (props) => {
         <Field type={"checkbox"} name={"rememberMe"} component={Input} />
         remember me
       </div>
+      {props.error && (
+        <div className={styles.formSummaryError}>{props.error}</div>
+      )}
       <div>
         <button className={s.button}>Login</button>
       </div>
@@ -40,11 +45,12 @@ const LoginForm = (props) => {
 
 const LoginReduxForm = reduxForm({
   //we use HOC reduxForm() from 'redux-form'
-  form: "login", //we use unique name for the form --->"login"
+  form: "login", //we use unique name in reducer for the form --->"login"
 })(LoginForm);
 
 const Login = (props) => {
   const onSubmit = (formData) => {
+    console.log(formData);
     props.login(formData.email, formData.password, formData.rememberMe);
   };
   if (props.isAuth) {

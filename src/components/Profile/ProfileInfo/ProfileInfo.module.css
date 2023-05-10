@@ -1,12 +1,31 @@
 .profile_items {
   padding: 10px;
 }
-.avatarka {
-  width: 50%;
-}
 .image {
   width: 300px;
+  border-radius: 5px;
+  margin-left: 20px;
 }
 .img {
   width: 100%;
+  border-radius: 5px;
+}
+.ava img {
+  margin-top: 20px;
+  width: 250px;
+  border-radius: 5px;
+  margin-left: 20px;
+}
+
+.status {
+  margin-left: 20px;
+  text-align: center;
+}
+.userInfo {
+  margin: 20px;
+}
+.imagesFlex {
+  display: flex;
+
+  align-items: center;
 }

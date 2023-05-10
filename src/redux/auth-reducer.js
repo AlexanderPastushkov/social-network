@@ -1,4 +1,5 @@
-import { authAPI, headerAPI, usersAPI } from "../api/api";
+import { stopSubmit } from "redux-form";
+import { authAPI } from "../api/api";
 
 const SET_USER_DATA = "SET_USER_DATA";
 
@@ -31,7 +32,7 @@ export const setUserData = (id, email, login, isAuth) => {
 
 export const getAuth = () => {
   return (dispatch) => {
-    authAPI.me().then((data) => {
+    return authAPI.me().then((data) => {
       if (data.resultCode === 0) {
         let { id, login, email } = data.data; //здесь порядок смотрим в консоли как пришли данные
         dispatch(setUserData(id, email, login, true)); //здесь порядок смотрим как указали в редьюсере
@@ -44,6 +45,9 @@ export const login = (email, password, rememberMe) => {
     authAPI.login(email, password, rememberMe).then((data) => {
       if (data.resultCode === 0) {
         dispatch(getAuth());
+      } else {
+        let message = data.messages.length > 0 ? data.messages : "some error";
+        dispatch(stopSubmit("login", { _error: message })); //login --->unique name of our form
       }
     });
   };

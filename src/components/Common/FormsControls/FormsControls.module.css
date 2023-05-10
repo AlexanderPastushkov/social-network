@@ -6,3 +6,8 @@
   color: rgb(255, 0, 0);
   font-weight: bold;
 }
+.formSummaryError {
+  border: red 1px solid;
+  padding: 5px;
+  color: #f21e1e;
+}

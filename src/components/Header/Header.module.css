@@ -4,8 +4,8 @@
 }
 .loginBlock {
   float: right;
-  margin-right: 20px;
-  margin-top: 15px;
+  padding-bottom: 20px;
+  margin: 15px;
 }
 .btn {
   background-color: #04399c;
@@ -14,5 +14,8 @@
   transition: all 0.3s ease 0s;
 }
 .btn:hover {
-  background-color: #129bf7;
+  background-color: #80aff1;
 }
+/* .loginItems {
+  padding: 15px;
+} */

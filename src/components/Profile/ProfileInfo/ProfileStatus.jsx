@@ -1,4 +1,5 @@
 import React from "react";
+import s from "../ProfileInfo/ProfileInfo.module.css";
 
 class ProfileStatus extends React.Component {
   state = {
@@ -30,7 +31,7 @@ class ProfileStatus extends React.Component {
   };
   render() {
     return (
-      <div>
+      <div className={s.status}>
         {!this.state.editMode && (
           <div>
             <span onDoubleClick={this.activateEditMode}>

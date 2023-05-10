@@ -1,16 +1,24 @@
 .myPosts_items {
   padding: 15px;
 }
-.btn {
+.myPosts_items h3 {
+  margin-bottom: 10px;
+}
+/* .btn {
   background-color: rgb(114, 190, 237);
   padding: 5px;
-}
+} */
 .button {
   background-color: rgb(114, 190, 237);
   padding: 5px;
+  transition: all 0.3s ease 0s;
+}
+.button:hover {
+  background-color: rgb(40, 148, 214);
 }
 .postForm {
-  background-color: #a2fbeb;
+  background-color: #08be9d;
   display: inline-block;
   padding: 10px;
+  border-radius: 5px;
 }

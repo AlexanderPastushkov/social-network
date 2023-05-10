@@ -112,13 +112,13 @@ export const toggleIsFetching = (isFetching) => {
 };
 //========================================================================================================================================================
 //thunk-creators
-export const getUsers = (currentPage, pageSize) => {
+export const requestUsers = (page, pageSize) => {
   return (dispatch) => {
     dispatch(toggleIsFetching(true));
     usersAPI
-      .getUsers(currentPage, pageSize) //axios.create -> we make request from DAL
+      .getUsers(page, pageSize) //axios.create -> we make request from DAL
       .then((data) => {
-        dispatch(setCurrentPage(currentPage));
+        dispatch(setCurrentPage(page));
         dispatch(toggleIsFetching(false));
         dispatch(setUsers(data.items));
         dispatch(setTotalUsersCount(data.totalCount));

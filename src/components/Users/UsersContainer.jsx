@@ -2,7 +2,15 @@ import React from "react";
 import { connect } from "react-redux";
 import { compose } from "redux";
 import { withAuthRedirect } from "../../hoc/withAuthRedirect";
-import { follow, getUsers, unfollow } from "../../redux/users-reducer";
+import { follow, requestUsers, unfollow } from "../../redux/users-reducer";
+import {
+  getCurrentPage,
+  getFollowingInProgress,
+  getIsFetching,
+  getPageSize,
+  getTotalUsersCount,
+  getUsers,
+} from "../../redux/users-selectors";
 import Preloader from "../Common/Preloader/Pleloader";
 
 import Users from "./Users";
@@ -11,7 +19,7 @@ class UsersContainer extends React.Component {
   //   super(props); если конструктор не делает ничего другого,кроме как делегирует полномочия Реакт компоненте то можно не писать
   // }
   componentDidMount() {
-    this.props.getUsers(this.props.currentPage, this.props.pageSize);
+    this.props.requestUsers(this.props.currentPage, this.props.pageSize);
     // this.props.toggleIsFetching(true);
     // usersAPI
     //   .getUsers(this.props.currentPage, this.props.pageSize) //axios.create -> we make request from DAL
@@ -22,7 +30,7 @@ class UsersContainer extends React.Component {
     //   });
   }
   onPageChanged = (pageNumber) => {
-    this.props.getUsers(pageNumber, this.props.pageSize);
+    this.props.requestUsers(pageNumber, this.props.pageSize);
   };
   render() {
     return (
@@ -45,17 +53,17 @@ class UsersContainer extends React.Component {
 
 let mapStateToProps = (state) => {
   return {
-    users: state.usersPage.users,
-    pageSize: state.usersPage.pageSize,
-    totalUsersCount: state.usersPage.totalUsersCount,
-    currentPage: state.usersPage.currentPage,
-    isFetching: state.usersPage.isFetching,
-    followingInProgress: state.usersPage.followingInProgress,
+    users: getUsers(state),
+    pageSize: getPageSize(state),
+    totalUsersCount: getTotalUsersCount(state),
+    currentPage: getCurrentPage(state),
+    isFetching: getIsFetching(state),
+    followingInProgress: getFollowingInProgress(state),
   };
 };
 export default compose(
   connect(mapStateToProps, {
-    getUsers,
+    requestUsers,
     follow,
     unfollow,
   }),

@@ -3,10 +3,12 @@ import s from "./Header.module.css";
 const Header = (props) => {
   return (
     <header className="header">
-      <img className={s.logo} src="#" alt="logo" />
       <div className={s.loginBlock}>
         {props.isAuth ? (
-          <div>
+          <div className={s.loginItems}>
+            <div>
+              <img src="" alt="" />
+            </div>
             {props.login}
             <button className={s.btn} onClick={props.logout}>
               Log out

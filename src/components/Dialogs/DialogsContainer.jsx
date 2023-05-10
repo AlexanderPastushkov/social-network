@@ -14,8 +14,8 @@ let mapStateToProps = (state) => {
 export default compose(
   connect(mapStateToProps, {
     addMessage,
-  })
-  // withAuthRedirect
+  }),
+  withAuthRedirect
 )(Dialogs);
 
 //we connect our data to store and make container component
