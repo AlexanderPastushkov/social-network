@@ -6,6 +6,7 @@ import ProfileStatus from "./ProfileStatus";
 import ava from "../../../images/02.jpg";
 import noAva from "../../../images/NoAva.png";
 import developer from "../../../images/React-Developer.png";
+import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
 const ProfileInfo = (props) => {
   if (!props.profile) {
     return <Preloader />;
@@ -30,7 +31,7 @@ const ProfileInfo = (props) => {
               alt="photo"
             />
           </div>
-          <ProfileStatus
+          <ProfileStatusWithHooks
             status={props.status}
             updateStatus={props.updateStatus}
           />
