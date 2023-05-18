@@ -9,18 +9,9 @@ import {
 import { Textarea } from "../../Common/FormsControls/FormsControls";
 const MyPosts = React.memo((props) => {
   console.log("render");
-  let postsElements = props.postsData.map((p) => (
-    <Post mes={p.message} like={p.likeCount} key={p.id} />
-  ));
-
-  // let onAddPost = () => {
-  //   props.addPost();
-  //   //add post to bll
-  // };
-  // let onPostChange = (e) => {
-  //   let text = e.target.value;
-  //   props.updateNewPostText(text); //update post in state(bll)
-  // };
+  let postsElements = [...props.postsData]
+    .reverse() //мутирующий метод ,нужно работать с копией массива [...props.postsData]
+    .map((p) => <Post mes={p.message} like={p.likeCount} key={p.id} />);
   const addPost = (values) => {
     props.addPost(values.post);
   };

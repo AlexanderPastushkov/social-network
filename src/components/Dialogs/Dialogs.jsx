@@ -6,22 +6,28 @@ import { Textarea } from "../Common/FormsControls/FormsControls";
 import { maxLengthCreator, required } from "../../utils/validators/validators";
 
 const Dialogs = (props) => {
-  let dialogsElements = props.dialogsPage.dialogsData.map((d) => (
-    <div key={d.id} className={s.dialog}>
-      <NavLink to={"/dialogs/" + d.id}>
-        <img
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRwZsyf5DxP_1f2efMNz_jBvlAeytorE4Ac65wwMk3jsPl8M68875c3VNwCZPRfVPCWuo&usqp=CAU"
-          alt="image"
-        />
-        {d.name}
-      </NavLink>
-    </div>
-  ));
-  let messagesElements = props.dialogsPage.messagesData.map((m) => (
-    <div key={m.id} className={s.dialog}>
-      {m.message}
-    </div>
-  ));
+  let dialogsElements = props.dialogsPage.dialogsData
+    .concat()
+    .reverse()
+    .map((d) => (
+      <div key={d.id} className={s.dialog}>
+        <NavLink to={"/dialogs/" + d.id}>
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRwZsyf5DxP_1f2efMNz_jBvlAeytorE4Ac65wwMk3jsPl8M68875c3VNwCZPRfVPCWuo&usqp=CAU"
+            alt="image"
+          />
+          {d.name}
+        </NavLink>
+      </div>
+    ));
+  let messagesElements = props.dialogsPage.messagesData
+    .concat()
+    .reverse()
+    .map((m) => (
+      <div key={m.id} className={s.dialog}>
+        {m.message}
+      </div>
+    ));
 
   const addNewMessage = (values) => {
     props.addMessage(values.message); //add our message to BLL
