@@ -10,6 +10,7 @@ import {
   getPageSize,
   getTotalUsersCount,
   getUsers,
+  getUsersSuper,
 } from "../../redux/users-selectors";
 import Preloader from "../Common/Preloader/Pleloader";
 

@@ -4,7 +4,7 @@ import musicReducer from "./music-reducer";
 import newsReducer from "./news-reducer";
 import profileReducer from "./profile-reducer";
 import sidebarReducer from "./sidebar-reducer";
-
+//we create our own store like redux state-manager
 let store = {
   _state: {
     profilePage: {

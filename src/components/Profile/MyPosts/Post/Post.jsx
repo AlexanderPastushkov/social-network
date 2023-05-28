@@ -1,12 +1,12 @@
 import s from "./Post.module.css";
 import patrick from "../../../../images/patrick.jpg";
-const Post = (props) => {
+const Post = ({ mes, like, key }) => {
   return (
-    <div className={s.item}>
+    <div className={s.item} key={key}>
       <img className={s.img} src={patrick} alt="pic" />
-      {props.mes}
+      {mes}
       <div>
-        <span>like {props.like}</span>
+        <span>like {like}</span>
       </div>
     </div>
   );

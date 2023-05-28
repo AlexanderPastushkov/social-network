@@ -22,18 +22,27 @@ class ProfileContainer extends React.Component {
     );
   }
   componentDidMount() {
-    let userId = this.props.match.params.userId;
+    let userId = this.props.match.params.userId; //wrap in withRouter
     console.log(userId);
     if (!userId) {
       userId = this.props.authorizedUserId;
+
       if (!userId) {
-        this.props.history.push("/login");
+        this.props.history.push("/login"); //wrapping in withRouter
       }
     }
     this.props.getProfile(userId);
     this.props.getStatus(userId);
   }
+  // componentDidUpdate(prevProps, prevState) {
+  //   if (prevProps.match.params.userId !== this.props.authorizedUserId) {
+  //     this.props.getProfile(this.props.authorizedUserId);
+  //     this.props.getStatus(this.props.authorizedUserId);
+  //   }
+  //   console.log("componentDidUpdate");
+  // }
 }
+
 let mapStateToProps = (state) => ({
   profile: state.profilePage.profile,
   status: state.profilePage.status,

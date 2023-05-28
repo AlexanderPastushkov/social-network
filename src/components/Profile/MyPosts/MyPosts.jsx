@@ -7,18 +7,18 @@ import {
   required,
 } from "../../../utils/validators/validators";
 import { Textarea } from "../../Common/FormsControls/FormsControls";
-const MyPosts = React.memo((props) => {
+const MyPosts = React.memo(({ postsData, addPost }) => {
   console.log("render");
-  let postsElements = [...props.postsData]
+  let postsElements = [...postsData]
     .reverse() //мутирующий метод ,нужно работать с копией массива [...props.postsData]
     .map((p) => <Post mes={p.message} like={p.likeCount} key={p.id} />);
-  const addPost = (values) => {
-    props.addPost(values.post);
+  const addMyPost = (values) => {
+    addPost(values.post);
   };
   return (
     <div className={s.myPosts_items}>
       <h3>My posts</h3>
-      <PostsReduxForm onSubmit={addPost} />
+      <PostsReduxForm onSubmit={addMyPost} />
       <div className={s.posts}>{postsElements}</div>
     </div>
   );

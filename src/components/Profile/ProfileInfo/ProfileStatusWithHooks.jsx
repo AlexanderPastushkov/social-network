@@ -4,11 +4,11 @@ import { useState } from "react";
 import s from "../ProfileInfo/ProfileInfo.module.css";
 
 const ProfileStatusWithHooks = (props) => {
-  const [editMode, setEditMode] = useState(false);
-  const [status, setStatus] = useState(props.status);
+  const [editMode, setEditMode] = useState(false); //false - initial value
+  const [status, setStatus] = useState(props.status); //props.status - initial value
   useEffect(() => {
     setStatus(props.status);
-  }, [props.status]); //эффект сработает только при изменении props.status
+  }, [props.status]); //The effect will only work if props.status will be changed
   const activateEditMode = () => {
     setEditMode(true);
   };
@@ -27,7 +27,7 @@ const ProfileStatusWithHooks = (props) => {
           <div>
             <span onDoubleClick={activateEditMode}>{props.status}</span>
           </div>
-        ) //onDoubleClick we change span on input
+        ) //onDoubleClick we change span on input, useEffect help us update span if props.status changed
       }
       {editMode && (
         <div>

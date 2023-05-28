@@ -5,8 +5,8 @@ import { Field, reduxForm } from "redux-form";
 import { Textarea } from "../Common/FormsControls/FormsControls";
 import { maxLengthCreator, required } from "../../utils/validators/validators";
 
-const Dialogs = (props) => {
-  let dialogsElements = props.dialogsPage.dialogsData
+const Dialogs = ({ dialogsPage, addMessage }) => {
+  let dialogsElements = dialogsPage.dialogsData
     .concat()
     .reverse()
     .map((d) => (
@@ -20,7 +20,7 @@ const Dialogs = (props) => {
         </NavLink>
       </div>
     ));
-  let messagesElements = props.dialogsPage.messagesData
+  let messagesElements = dialogsPage.messagesData
     .concat()
     .reverse()
     .map((m) => (
@@ -30,7 +30,7 @@ const Dialogs = (props) => {
     ));
 
   const addNewMessage = (values) => {
-    props.addMessage(values.message); //add our message to BLL
+    addMessage(values.message); //add our message to BLL
   };
   return (
     <div className={s.dialogs}>
