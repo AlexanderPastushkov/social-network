@@ -1,20 +1,18 @@
-import "./App.css";
-import Navbar from "./components/Navbar/Navbar";
+import React from "react";
+import { connect } from "react-redux";
 import { Route, Routes } from "react-router-dom";
+import { compose } from "redux";
+import "./App.css";
+import Preloader from "./components/Common/Preloader/Pleloader";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
-import NewsContainer from "./components/News/NewsContainer";
-import UsersContainer from "./components/Users/UsersContainer";
-import MusicContainer from "./components/Music/MusicContainer";
-import ProfileContainer from "./components/Profile/ProfileContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import Login from "./components/Login/Login";
-import React from "react";
-import { getAuth } from "./redux/auth-reducer";
-import { connect } from "react-redux";
-import { compose } from "redux";
+import Navbar from "./components/Navbar/Navbar";
+import NewsContainer from "./components/News/NewsContainer";
+import ProfileContainer from "./components/Profile/ProfileContainer";
+import UsersContainer from "./components/Users/UsersContainer";
 import { withRouter } from "./hoc/withRouter";
 import { initializeApp } from "./redux/app-reducer";
-import Preloader from "./components/Common/Preloader/Pleloader";
 
 //получаем пропсы от родителя index.js
 class App extends React.Component {
@@ -35,16 +33,9 @@ class App extends React.Component {
               <Route path=":userId" element={<ProfileContainer />} />{" "}
             </Route>
             <Route path="/dialogs" element={<DialogsContainer />} />
-            <Route path="/news" element={<NewsContainer />} />
-            <Route path="/users" element={<UsersContainer />} />
-            <Route path="/music" element={<MusicContainer />} />
-            <Route path="/login" element={<Login />} />
 
-            {/* <Route path="/settings" element={<Set />} />
-          <Route
-            path="/friends"
-            element={<Friends friends={props.state.friendsPage.friendsData} />}
-          /> */}
+            <Route path="/users" element={<UsersContainer />} />
+            <Route path="/login" element={<Login />} />
           </Routes>
         </div>
       </div>

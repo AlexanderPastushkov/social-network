@@ -7,10 +7,9 @@ import {
   required,
 } from "../../../utils/validators/validators";
 import { Textarea } from "../../Common/FormsControls/FormsControls";
-const MyPosts = React.memo(({ postsData, addPost }) => {
-  console.log("render");
+const MyPosts = ({ postsData, addPost }) => {
   let postsElements = [...postsData]
-    .reverse() //мутирующий метод ,нужно работать с копией массива [...props.postsData]
+    .reverse() //мутирующий метод ,нужно работать с копией массива [...postsData]
     .map((p) => <Post mes={p.message} like={p.likeCount} key={p.id} />);
   const addMyPost = (values) => {
     addPost(values.post);
@@ -22,7 +21,7 @@ const MyPosts = React.memo(({ postsData, addPost }) => {
       <div className={s.posts}>{postsElements}</div>
     </div>
   );
-});
+};
 const maxLength10 = maxLengthCreator(10);
 
 const PostsForm = (props) => {

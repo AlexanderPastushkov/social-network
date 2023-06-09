@@ -1,9 +1,0 @@
-.music_item {
-  color: rgb(255, 255, 255);
-}
-.musicItems {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  padding: 15px;
-}

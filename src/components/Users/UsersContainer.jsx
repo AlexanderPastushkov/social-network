@@ -10,7 +10,6 @@ import {
   getPageSize,
   getTotalUsersCount,
   getUsers,
-  getUsersSuper,
 } from "../../redux/users-selectors";
 import Preloader from "../Common/Preloader/Pleloader";
 
@@ -20,7 +19,8 @@ class UsersContainer extends React.Component {
   //   super(props); если конструктор не делает ничего другого,кроме как делегирует полномочия Реакт компоненте то можно не писать
   // }
   componentDidMount() {
-    this.props.requestUsers(this.props.currentPage, this.props.pageSize);
+    let { currentPage, pageSize } = this.props;
+    this.props.requestUsers(currentPage, pageSize);
     // this.props.toggleIsFetching(true);
     // usersAPI
     //   .getUsers(this.props.currentPage, this.props.pageSize) //axios.create -> we make request from DAL
@@ -54,7 +54,7 @@ class UsersContainer extends React.Component {
 
 let mapStateToProps = (state) => {
   return {
-    users: getUsers(state),
+    users: getUsers(state), //using selectors
     pageSize: getPageSize(state),
     totalUsersCount: getTotalUsersCount(state),
     currentPage: getCurrentPage(state),

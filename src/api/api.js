@@ -10,15 +10,13 @@ const instance = axios.create({
 
 export const authAPI = {
   me() {
-    return instance.get("auth/me").then((response) => response.data);
+    return instance.get("auth/me");
   },
   login(email, password, rememberMe = false) {
-    return instance
-      .post("auth/login", { email, password, rememberMe }) //request payload email,password,rememberMe ---> according to API docs
-      .then((response) => response.data);
+    return instance.post("auth/login", { email, password, rememberMe }); //request payload email,password,rememberMe ---> according to API docs
   },
   logout() {
-    return instance.delete("auth/login").then((response) => response.data);
+    return instance.delete("auth/login");
   },
 };
 

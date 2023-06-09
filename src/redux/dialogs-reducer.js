@@ -1,20 +1,15 @@
-const ADD_MESSAGE = "ADD-MESSAGE";
+const ADD_MESSAGE = "dialogs/ADD-MESSAGE";
+const SET_MESSAGES = "dialogs/SET_MESSAGES";
+const SET_USERS = "dialogs/SET_USERS";
+const SET_CURRENT_PAGE = "dialogs/SET_CURRENT_PAGE";
+const SET_TOTAL_COUNT = "dialogs/SET_TOTAL_COUNT";
 
 let initialState = {
-  dialogsData: [
-    { id: 1, name: "Dima" },
-    { id: 2, name: "viktor" },
-    { id: 3, name: "sanya" },
-    { id: 4, name: "valera" },
-    { id: 5, name: "dasha" },
-  ],
-  messagesData: [
-    { id: 1, message: "hi" },
-    { id: 2, message: "yo" },
-    { id: 3, message: "hello" },
-    { id: 4, message: "how are you" },
-    { id: 5, message: "hello" },
-  ],
+  dialogsDataUsers: [],
+  messagesData: [],
+  pageSize: 20,
+  totalUsersCount: 0,
+  currentPage: 1,
 };
 
 const dialogsReducer = (state = initialState, action) => {
@@ -25,11 +20,25 @@ const dialogsReducer = (state = initialState, action) => {
         ...state,
         messagesData: [...state.messagesData, body],
       };
-
+    case SET_MESSAGES:
+      return {
+        ...state,
+        messagesData: action.messagesData,
+      };
+    case SET_USERS:
+      return {
+        ...state,
+        dialogsDataUsers: action.users,
+      };
+    case SET_CURRENT_PAGE:
+      return { ...state, currentPage: action.currentPage };
+    case SET_TOTAL_COUNT:
+      return { ...state, totalUsersCount: action.totalUsersCount };
     default:
       return state;
   }
 };
+
 export const addMessage = (newMessageBody) => {
   return {
     type: ADD_MESSAGE,
@@ -37,4 +46,29 @@ export const addMessage = (newMessageBody) => {
   };
 };
 
+export const addAllMessages = (messagesData) => {
+  return {
+    type: SET_MESSAGES,
+    messagesData,
+  };
+};
+export const setDialogsDataUsers = (users) => {
+  return {
+    type: SET_USERS,
+    users,
+  };
+};
+
+export const setCurrentPage = (currentPage) => {
+  return {
+    type: SET_CURRENT_PAGE,
+    currentPage,
+  };
+};
+export const setTotalUsersCount = (totalUsersCount) => {
+  return {
+    type: SET_TOTAL_COUNT,
+    totalUsersCount,
+  };
+};
 export default dialogsReducer;

@@ -1,6 +1,5 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Navigate, useParams } from "react-router-dom";
 import { compose } from "redux";
 import { withAuthRedirect } from "../../hoc/withAuthRedirect";
 import { withRouter } from "../../hoc/withRouter";
@@ -23,7 +22,6 @@ class ProfileContainer extends React.Component {
   }
   componentDidMount() {
     let userId = this.props.match.params.userId; //wrap in withRouter
-    console.log(userId);
     if (!userId) {
       userId = this.props.authorizedUserId;
 

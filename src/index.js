@@ -12,6 +12,7 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
     <Provider store={store}>
+      {/* create context with redux library */}
       <React.StrictMode>
         <App />
       </React.StrictMode>
