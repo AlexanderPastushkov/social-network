@@ -2,38 +2,50 @@ import React, { useEffect } from "react";
 import { reduxForm } from "redux-form";
 import { maxLengthCreator, required } from "../../utils/validators/validators";
 import { createField, Textarea } from "../Common/FormsControls/FormsControls";
-import Paginator from "../Common/Paginator/Paginator";
-import DialogItem from "./DialogItem/DialogsItem";
+import UserItem from "./UserItem/UserItem";
+import DialogItem from "./UserItem/UserItem";
 import s from "./Dialogs.module.css";
 import Message from "./Message/Message";
 
 const Dialogs = ({
   dialogsPage: {
     dialogsDataUsers,
-    messagesData,
+    postsData,
     pageSize,
     totalUsersCount,
     currentPage,
   },
   addMessage,
-  addAllMessages,
+  addAllPosts,
   setDialogsDataUsers,
 }) => {
   let url = "https://jsonplaceholder.typicode.com/";
+
   useEffect(() => {
     fetch(`${url}posts`)
       .then((response) => response.json())
-      .then((data) => addAllMessages(data));
+      .then((data) => addAllPosts(data));
   }, [url]);
+
   useEffect(() => {
-    fetch(`${url}users`)
-      .then((response) => response.json())
-      .then((data) => setDialogsDataUsers(data));
+    fetchData();
   }, [url]);
+
+  const fetchData = async () => {
+    await fetch(`${url}users`)
+      .then((response) => response.json())
+      .then((data) => setDialogsDataUsers(data))
+      .catch((error) => console.log(error));
+  };
+
+  const onAdd = async () => {
+    await fetch(`${url}users`);
+  };
+
   let dialogsElements = dialogsDataUsers.map((u) => (
-    <DialogItem users={u} key={u.id} />
+    <UserItem users={u} key={u.id} />
   ));
-  let messagesElements = messagesData.map((m, index) => (
+  let postsElements = postsData.map((m, index) => (
     <Message message={m} key={m.id} />
   ));
 
@@ -44,7 +56,7 @@ const Dialogs = ({
   return (
     <div>
       <div className={s.dialogsItems}>{dialogsElements}</div>
-      <div className={s.messages}>{messagesElements}</div>
+      <div className={s.messages}>{postsElements}</div>
       <div className={s.formMessage}>
         <DialogsReduxForm onSubmit={addNewMessage} />
       </div>

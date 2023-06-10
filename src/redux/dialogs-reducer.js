@@ -1,12 +1,12 @@
 const ADD_MESSAGE = "dialogs/ADD-MESSAGE";
-const SET_MESSAGES = "dialogs/SET_MESSAGES";
+const SET_POSTS = "dialogs/SET_POSTS";
 const SET_USERS = "dialogs/SET_USERS";
 const SET_CURRENT_PAGE = "dialogs/SET_CURRENT_PAGE";
 const SET_TOTAL_COUNT = "dialogs/SET_TOTAL_COUNT";
 
 let initialState = {
   dialogsDataUsers: [],
-  messagesData: [],
+  postsData: [],
   pageSize: 20,
   totalUsersCount: 0,
   currentPage: 1,
@@ -20,10 +20,10 @@ const dialogsReducer = (state = initialState, action) => {
         ...state,
         messagesData: [...state.messagesData, body],
       };
-    case SET_MESSAGES:
+    case SET_POSTS:
       return {
         ...state,
-        messagesData: action.messagesData,
+        postsData: action.postsData,
       };
     case SET_USERS:
       return {
@@ -46,10 +46,10 @@ export const addMessage = (newMessageBody) => {
   };
 };
 
-export const addAllMessages = (messagesData) => {
+export const addAllPosts = (postsData) => {
   return {
-    type: SET_MESSAGES,
-    messagesData,
+    type: SET_POSTS,
+    postsData,
   };
 };
 export const setDialogsDataUsers = (users) => {

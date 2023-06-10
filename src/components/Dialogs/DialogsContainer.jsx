@@ -4,6 +4,7 @@ import { compose } from "redux";
 import { withAuthRedirect } from "../../hoc/withAuthRedirect";
 import {
   addAllMessages,
+  addAllPosts,
   addMessage,
   setDialogsDataUsers,
 } from "../../redux/dialogs-reducer";
@@ -18,7 +19,7 @@ let mapStateToProps = (state) => {
 export default compose(
   connect(mapStateToProps, {
     addMessage,
-    addAllMessages: addAllMessages,
+    addAllPosts: addAllPosts,
     setDialogsDataUsers: setDialogsDataUsers,
   }),
   withAuthRedirect

@@ -8,6 +8,7 @@ import {
   getFollowingInProgress,
   getIsFetching,
   getPageSize,
+  getPortionSize,
   getTotalUsersCount,
   getUsers,
 } from "../../redux/users-selectors";

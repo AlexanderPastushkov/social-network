@@ -9,7 +9,8 @@ const Users = ({
   pageSize,
   onPageChanged,
   users,
-  ...props
+  portionSize,
+  ...Restprops
 }) => {
   return (
     <>
@@ -17,11 +18,11 @@ const Users = ({
         pageSize={pageSize}
         currentPage={currentPage}
         onPageChanged={onPageChanged}
-        totalUsersCount={totalUsersCount}
+        totalItemsCount={totalUsersCount}
       />
       <div className={s.usersItems}>
         {users.map((u) => (
-          <User user={u} {...props} key={u.id} />
+          <User user={u} {...Restprops} key={u.id} />
         ))}
       </div>
     </>

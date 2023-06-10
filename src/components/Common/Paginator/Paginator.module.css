@@ -15,3 +15,13 @@
   justify-content: center;
   text-align: center;
 }
+.btn {
+  padding: 10px;
+  background-color: #170398;
+  color: #fff;
+  transition: all 0.3s ease 0s;
+  border-radius: 5px;
+}
+.btn:hover {
+  background-color: #4630d3;
+}

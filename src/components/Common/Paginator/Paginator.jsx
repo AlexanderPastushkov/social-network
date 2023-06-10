@@ -1,40 +1,82 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import s from "./Paginator.module.css";
 
 const Paginator = ({
   pageSize,
   currentPage,
   onPageChanged,
-  totalUsersCount,
+  totalItemsCount,
+  portionSize = 10, //quantity of pages what we see on desctop
 }) => {
   let pagesCount = Math.ceil(
-    totalUsersCount / pageSize // округляем до большего чтоб все страницы отображались
+    totalItemsCount / pageSize // округляем до большего чтоб все страницы отображались
   );
   let pages = [];
   for (let i = 1; i <= pagesCount; i++) {
-    pages.push(i);
+    pages.push(i); //create empty array and push count of pages in?start with 1
   }
-  let slicedPages;
-  let curPage = currentPage;
-  if (curPage - 3 < 0) {
-    slicedPages = pages.slice(0, 5);
-  } else {
-    slicedPages = pages.slice(curPage - 3, curPage + 2);
-  }
+
+  let portionCount = Math.ceil(pagesCount / portionSize); //quantity of portions, we divide our all pages on 10
+  let [portionNumber, setPortionNumber] = useState(
+    Math.floor(currentPage / 10) + 1 //rounded to down 1.1--->1 ect.
+  );
+  useEffect(() => {
+    setPortionNumber(Math.ceil(currentPage / portionSize)); //Math.ceil rounded our integer UP
+  }, [currentPage]); //при уходе со страницы юзеров на другую и при повторном возвращении на неё,
+  // пагинация подгоняется под текущую страницу юзеров, которая записана в userReducer,
+
+  let leftPortionPageNumber = (portionNumber - 1) * portionSize + 1;
+  let rightPortionPageNumber = portionNumber * portionSize;
+
   return (
     <div>
       <div className={s.pagination}>
-        {slicedPages.map((p, index) => (
-          <div
-            key={index}
-            className={currentPage === p ? s.selectedPage : s.nonSelected}
-            onClick={(e) => {
-              onPageChanged(p);
+        {/* {portionNumber > 1 && (
+          <button
+            className={s.btn}
+            onClick={() => {
+              onPageChanged(1);
             }}
           >
-            {p}
-          </div>
-        ))}
+            RETURN
+          </button>
+        )} */}
+
+        {portionNumber > 1 && (
+          <button
+            className={s.btn}
+            onClick={() => {
+              setPortionNumber(portionNumber - 1);
+            }}
+          >
+            PREV
+          </button>
+        )}
+        {pages
+          .filter(
+            (p) => p >= leftPortionPageNumber && p <= rightPortionPageNumber
+          )
+          .map((p, index) => (
+            <span
+              key={index}
+              className={currentPage === p ? s.selectedPage : s.nonSelected}
+              onClick={(e) => {
+                onPageChanged(p);
+              }}
+            >
+              {p}
+            </span>
+          ))}
+        {portionCount > portionNumber && (
+          <button
+            className={s.btn}
+            onClick={() => {
+              setPortionNumber(portionNumber + 1);
+            }}
+          >
+            NEXT
+          </button>
+        )}
       </div>
     </div>
   );
