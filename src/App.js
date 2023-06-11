@@ -1,19 +1,22 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import { connect } from "react-redux";
 import { Route, Routes } from "react-router-dom";
 import { compose } from "redux";
 import "./App.css";
 import Preloader from "./components/Common/Preloader/Pleloader";
-import DialogsContainer from "./components/Dialogs/DialogsContainer";
+// import DialogsContainer from "./components/Dialogs/DialogsContainer";
+
 import HeaderContainer from "./components/Header/HeaderContainer";
 import Login from "./components/Login/Login";
 import Navbar from "./components/Navbar/Navbar";
-import NewsContainer from "./components/News/NewsContainer";
 import ProfileContainer from "./components/Profile/ProfileContainer";
-import UsersContainer from "./components/Users/UsersContainer";
+// import UsersContainer from "./components/Users/UsersContainer";
 import { withRouter } from "./hoc/withRouter";
 import { initializeApp } from "./redux/app-reducer";
-
+const DialogsContainer = lazy(() =>
+  import("./components/Dialogs/DialogsContainer")
+); //our component misses bundle for the first render of our app, if we dont use it
+const UsersContainer = lazy(() => import("./components/Users/UsersContainer"));
 //получаем пропсы от родителя index.js
 class App extends React.Component {
   componentDidMount() {
@@ -28,15 +31,17 @@ class App extends React.Component {
         <HeaderContainer />
         <Navbar />
         <div className="wrapper_content ">
-          <Routes>
-            <Route path="/profile/" element={<ProfileContainer />}>
-              <Route path=":userId" element={<ProfileContainer />} />{" "}
-            </Route>
-            <Route path="/dialogs" element={<DialogsContainer />} />
+          <Suspense fallback={"LOADING..."}>
+            <Routes>
+              <Route path="/profile/" element={<ProfileContainer />}>
+                <Route path=":userId" element={<ProfileContainer />} />{" "}
+              </Route>
+              <Route path="/dialogs" element={<DialogsContainer />} />
 
-            <Route path="/users" element={<UsersContainer />} />
-            <Route path="/login" element={<Login />} />
-          </Routes>
+              <Route path="/users" element={<UsersContainer />} />
+              <Route path="/login" element={<Login />} />
+            </Routes>
+          </Suspense>
         </div>
       </div>
     );
