@@ -16,7 +16,7 @@ const MyPosts = ({ postsData, addPost }) => {
   };
   return (
     <div className={s.myPosts_items}>
-      <h3>My posts</h3>
+      <h3>My!!!! posts</h3>
       <PostsReduxForm onSubmit={addMyPost} />
       <div className={s.posts}>{postsElements}</div>
     </div>
