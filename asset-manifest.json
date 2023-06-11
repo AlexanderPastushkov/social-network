@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/git-lesson/static/css/main.f69fbb22.css",
-    "main.js": "/git-lesson/static/js/main.1e679c5f.js",
-    "static/css/124.8553d37d.chunk.css": "/git-lesson/static/css/124.8553d37d.chunk.css",
-    "static/js/124.bc600ceb.chunk.js": "/git-lesson/static/js/124.bc600ceb.chunk.js",
-    "static/css/515.7ebde2c9.chunk.css": "/git-lesson/static/css/515.7ebde2c9.chunk.css",
-    "static/js/515.2c6c48e3.chunk.js": "/git-lesson/static/js/515.2c6c48e3.chunk.js",
-    "static/media/job.jpg": "/git-lesson/static/media/job.bcb900cdab918ddeb23b.jpg",
-    "static/media/patrick.jpg": "/git-lesson/static/media/patrick.e84c9d4fa1eb414f39fa.jpg",
-    "static/media/React-Developer.png": "/git-lesson/static/media/React-Developer.f374a1658a8f4645dc43.png",
-    "static/media/NoAva.png": "/git-lesson/static/media/NoAva.fbfe03c21b01b8a17b01.png",
-    "static/media/Rolling-1s-200px.svg": "/git-lesson/static/media/Rolling-1s-200px.a039c7d9bafe791f25f2056971615f1b.svg",
-    "index.html": "/git-lesson/index.html",
-    "main.f69fbb22.css.map": "/git-lesson/static/css/main.f69fbb22.css.map",
-    "main.1e679c5f.js.map": "/git-lesson/static/js/main.1e679c5f.js.map",
-    "124.8553d37d.chunk.css.map": "/git-lesson/static/css/124.8553d37d.chunk.css.map",
-    "124.bc600ceb.chunk.js.map": "/git-lesson/static/js/124.bc600ceb.chunk.js.map",
-    "515.7ebde2c9.chunk.css.map": "/git-lesson/static/css/515.7ebde2c9.chunk.css.map",
-    "515.2c6c48e3.chunk.js.map": "/git-lesson/static/js/515.2c6c48e3.chunk.js.map"
+    "main.css": "/social-network/static/css/main.f69fbb22.css",
+    "main.js": "/social-network/static/js/main.52bec223.js",
+    "static/css/124.8553d37d.chunk.css": "/social-network/static/css/124.8553d37d.chunk.css",
+    "static/js/124.bc600ceb.chunk.js": "/social-network/static/js/124.bc600ceb.chunk.js",
+    "static/css/515.7ebde2c9.chunk.css": "/social-network/static/css/515.7ebde2c9.chunk.css",
+    "static/js/515.2c6c48e3.chunk.js": "/social-network/static/js/515.2c6c48e3.chunk.js",
+    "static/media/job.jpg": "/social-network/static/media/job.bcb900cdab918ddeb23b.jpg",
+    "static/media/patrick.jpg": "/social-network/static/media/patrick.e84c9d4fa1eb414f39fa.jpg",
+    "static/media/React-Developer.png": "/social-network/static/media/React-Developer.f374a1658a8f4645dc43.png",
+    "static/media/NoAva.png": "/social-network/static/media/NoAva.fbfe03c21b01b8a17b01.png",
+    "static/media/Rolling-1s-200px.svg": "/social-network/static/media/Rolling-1s-200px.a039c7d9bafe791f25f2056971615f1b.svg",
+    "index.html": "/social-network/index.html",
+    "main.f69fbb22.css.map": "/social-network/static/css/main.f69fbb22.css.map",
+    "main.52bec223.js.map": "/social-network/static/js/main.52bec223.js.map",
+    "124.8553d37d.chunk.css.map": "/social-network/static/css/124.8553d37d.chunk.css.map",
+    "124.bc600ceb.chunk.js.map": "/social-network/static/js/124.bc600ceb.chunk.js.map",
+    "515.7ebde2c9.chunk.css.map": "/social-network/static/css/515.7ebde2c9.chunk.css.map",
+    "515.2c6c48e3.chunk.js.map": "/social-network/static/js/515.2c6c48e3.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f69fbb22.css",
-    "static/js/main.1e679c5f.js"
+    "static/js/main.52bec223.js"
   ]
 }
