@@ -56,4 +56,13 @@ export const profileAPI = {
       .put(`profile/status`, { status: status }) //вместе в put  отправляем объект в котором есть свойство status, так указано в документации
       .then((response) => response.data);
   },
+  savePhoto(photoFile) {
+    let formData = new FormData();
+    formData.append("image", photoFile);
+    return instance.put(`profile/photo`, formData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
+  },
 };
