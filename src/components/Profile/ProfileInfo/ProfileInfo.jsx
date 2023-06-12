@@ -19,13 +19,20 @@ const ProfileInfo = ({ profile, status, updateStatus, isOwner, savePhoto }) => {
         <div>{profile?.contacts?.vk}</div>
       </div>
       <div className={s.imagesFlex}>
-        <div>
+        <div className={s.avaItems}>
           <div className={s.ava}>
             <img
               src={!profile?.photos?.large ? noAva : profile.photos.large}
               alt="photo"
             />
-            {isOwner && <input onChange={onMainPhotoSelected} type={"file"} />}
+            {isOwner && (
+              <div className={s.chooseBtn}>
+                <label className={s.customFileUpload}>
+                  <input onChange={onMainPhotoSelected} type="file" />
+                  Upload Photo
+                </label>
+              </div>
+            )}
           </div>
           <ProfileStatusWithHooks status={status} updateStatus={updateStatus} />
         </div>

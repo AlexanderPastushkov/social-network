@@ -11,12 +11,12 @@
   border-radius: 5px;
 }
 .ava img {
-  margin-top: 20px;
-  width: 250px;
   border-radius: 5px;
-  margin-left: 20px;
 }
-
+.ava {
+  gap: 15px;
+  position: relative;
+}
 .status {
   margin-left: 20px;
   text-align: center;
@@ -28,4 +28,23 @@
   display: flex;
 
   align-items: center;
+}
+input[type="file"] {
+  display: none;
+}
+.customFileUpload {
+  border: 1px solid #ccc;
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+  text-align: center;
+  opacity: 0.5;
+}
+.avaItems {
+  text-align: center;
+}
+.chooseBtn {
+  position: absolute;
+  top: 0;
+  left: 0;
 }
