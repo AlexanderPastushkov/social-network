@@ -21,9 +21,12 @@ export const authAPI = {
 };
 
 export const usersAPI = {
-  getUsers(currentPage, pageSize) {
+  getUsers(currentPage, pageSize, term = "", friend) {
     return instance
-      .get(`users?page=${currentPage}&count=${pageSize}`)
+      .get(
+        `users?page=${currentPage}&count=${pageSize}&term=${term}` +
+          (friend === null ? "" : `&friend=${friend}`)
+      )
       .then((response) => response.data);
   },
   unfollow(id) {
@@ -64,5 +67,8 @@ export const profileAPI = {
         "Content-Type": "multipart/form-data",
       },
     });
+  },
+  saveProfile(profile) {
+    return instance.put(`profile/`, profile);
   },
 };

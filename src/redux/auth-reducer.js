@@ -51,7 +51,7 @@ export const login = (email, password, rememberMe) => {
         response.data.messages.length > 0
           ? response.data.messages
           : "some error";
-      dispatch(stopSubmit("login", { _error: message })); //login --->unique name of our form
+      // dispatch(stopSubmit("login", { _error: message })); //login --->unique name of our form
     }
   };
 };

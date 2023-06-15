@@ -5,16 +5,18 @@
 .loginBlock {
   float: right;
   padding-bottom: 20px;
-  margin: 15px;
 }
 .btn {
   background-color: #04399c;
   padding: 5px;
-  margin-left: 5px;
+  margin: 5px;
   transition: all 0.3s ease 0s;
 }
 .btn:hover {
   background-color: #80aff1;
+}
+.loginItems {
+  margin-bottom: 10px;
 }
 /* .loginItems {
   padding: 15px;

@@ -1,0 +1,85 @@
+import React from "react";
+import { Field, Form, Formik } from "formik";
+import s from "./Login.module.css";
+import { login, logout } from "../../redux/auth-reducer";
+import { connect } from "react-redux";
+import { Navigate } from "react-router-dom";
+
+const LoginFormik = ({ login, isAuth }) => {
+  const loginFormValidateEmail = (values) => {
+    const errors = {};
+    if (!values.email) {
+      errors.email = "Required";
+    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) {
+      errors.email = "Invalid email address";
+    }
+    return errors;
+  };
+  const loginFormValidatePassword = (values) => {
+    if (!values) return "Required";
+  };
+  const submit = (values, { setSubmitting }) => {
+    login(values.email, values.password, values.rememberMe);
+    setSubmitting(false);
+  };
+  if (isAuth) {
+    return <Navigate to="/profile" />;
+  }
+  return (
+    <div className={s.loginForm}>
+      <Formik
+        className={s.form}
+        initialValues={{ email: "", password: "", rememberMe: false }}
+        validate={loginFormValidateEmail}
+        onSubmit={submit}
+      >
+        {({
+          values,
+          errors,
+          touched,
+          handleChange,
+          handleBlur,
+          handleSubmit,
+          isSubmitting,
+          /* and other goodies */
+        }) => (
+          <Form className={s.formBlock}>
+            <div className={s.emailBlock}>
+              <label>Email</label>
+              <Field className={s.emailField} type="email" name="email" />
+              <p className={s.error}>
+                {errors.email && touched.email && errors.email}
+              </p>
+            </div>
+            <div>
+              <label>Password</label>
+              <Field
+                className={s.passwordField}
+                type="password"
+                name="password"
+                validate={loginFormValidatePassword}
+              />
+              <p className={s.error}>
+                {errors.password && touched.password && errors.password}
+              </p>
+            </div>
+            <label>Remember me</label>
+            <Field type="checkbox" name="rememberMe" />
+            <button className={s.button} type="submit" disabled={isSubmitting}>
+              Submit
+            </button>
+          </Form>
+        )}
+      </Formik>
+    </div>
+  );
+};
+
+const mapStateToProps = (state) => {
+  return {
+    isAuth: state.auth.isAuth,
+  };
+};
+export default connect(mapStateToProps, { login: login, logout: logout })(
+  LoginFormik
+);

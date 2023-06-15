@@ -59,11 +59,11 @@ h6 {
   color: #fff;
 }
 .wrapper_content {
-  background-color: rgb(13, 98, 255);
+  background-color: rgb(1, 162, 255);
   grid-area: c;
 }
 
 .header {
   grid-area: h;
-  background-color: rgb(116, 96, 242);
+  background-color: rgb(10, 97, 168);
 }

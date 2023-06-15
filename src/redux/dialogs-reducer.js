@@ -5,7 +5,7 @@ const SET_CURRENT_PAGE = "dialogs/SET_CURRENT_PAGE";
 const SET_TOTAL_COUNT = "dialogs/SET_TOTAL_COUNT";
 
 let initialState = {
-  dialogsDataUsers: [],
+  messagesData: [],
   postsData: [],
   pageSize: 20,
   totalUsersCount: 0,

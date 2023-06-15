@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
-import s from "../ProfileInfo/ProfileInfo.module.css";
+import s from "../ProfileInfo.module.css";
 
 const ProfileStatusWithHooks = (props) => {
   const [editMode, setEditMode] = useState(false); //false - initial value
@@ -25,6 +25,7 @@ const ProfileStatusWithHooks = (props) => {
       {
         !editMode && (
           <div>
+            <b>status: </b>{" "}
             <span onDoubleClick={activateEditMode}>{props.status}</span>
           </div>
         ) //onDoubleClick we change span on input, useEffect help us update span if props.status changed

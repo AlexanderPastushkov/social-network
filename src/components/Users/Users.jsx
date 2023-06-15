@@ -2,18 +2,21 @@ import React from "react";
 import Paginator from "../Common/Paginator/Paginator";
 import User from "./User";
 import s from "./Users.module.css";
+import UsersSearchForm from "./UsersSearchForm";
 
 const Users = ({
   currentPage,
   totalUsersCount,
   pageSize,
   onPageChanged,
+  onFilterChanged,
   users,
   portionSize,
-  ...Restprops
+  ...restProps
 }) => {
   return (
     <>
+      <UsersSearchForm onFilterChanged={onFilterChanged} />
       <Paginator
         pageSize={pageSize}
         currentPage={currentPage}
@@ -22,7 +25,7 @@ const Users = ({
       />
       <div className={s.usersItems}>
         {users.map((u) => (
-          <User user={u} {...Restprops} key={u.id} />
+          <User user={u} {...restProps} key={u.id} />
         ))}
       </div>
     </>

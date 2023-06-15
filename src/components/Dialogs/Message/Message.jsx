@@ -2,13 +2,7 @@ import s from "./../Dialogs.module.css";
 import React from "react";
 
 const Message = ({ message }) => {
-  return (
-    <div className={s.dialog}>
-      <div>{message.id}</div>
-      <div className={s.title}>{message.title}</div>
-      <div className={s.body}>{message.body}</div>
-    </div>
-  );
+  return <div className={s.dialog}>this section is in developing</div>;
 };
 
 export default Message;

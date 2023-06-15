@@ -8,10 +8,10 @@ import { createField, Input } from "../Common/FormsControls/FormsControls";
 import styles from "../Common/FormsControls/FormsControls.module.css";
 import s from "./Login.module.css";
 
-const LoginForm = ({ handleSubmit, error }) => {
+const LoginForm = ({ handleSubmit, error, onSubmit }) => {
   return (
     // props.handleSubmit появляется после wrap reduxForm и собирает данные в formData
-    <form onSubmit={handleSubmit} className={s.form}>
+    <form onSubmit={onSubmit} className={s.form}>
       {createField("email", "email", [required], Input)}
       {createField("Password", "password", [required], Input, {
         type: "password",

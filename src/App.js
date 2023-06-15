@@ -8,6 +8,7 @@ import Preloader from "./components/Common/Preloader/Pleloader";
 
 import HeaderContainer from "./components/Header/HeaderContainer";
 import Login from "./components/Login/Login";
+import LoginFormik from "./components/Login/LoginFormik";
 import Navbar from "./components/Navbar/Navbar";
 import ProfileContainer from "./components/Profile/ProfileContainer";
 // import UsersContainer from "./components/Users/UsersContainer";
@@ -36,10 +37,10 @@ class App extends React.Component {
               <Route path="/profile/" element={<ProfileContainer />}>
                 <Route path=":userId" element={<ProfileContainer />} />{" "}
               </Route>
-              <Route path="/dialogs" element={<DialogsContainer />} />
+              {/* <Route path="/dialogs" element={<LoginFormik />} /> */}
 
               <Route path="/users" element={<UsersContainer />} />
-              <Route path="/login" element={<Login />} />
+              <Route path="/login" element={<LoginFormik />} />
             </Routes>
           </Suspense>
         </div>

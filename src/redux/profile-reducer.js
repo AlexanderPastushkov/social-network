@@ -97,6 +97,15 @@ export const savePhoto = (file) => {
     }
   };
 };
+export const saveProfile = (profile) => {
+  return async (dispatch) => {
+    let response = await profileAPI.saveProfile(profile);
+
+    if (response.data.resultCode === 0) {
+      // dispatch(savePhotoSuccess(response.data.data.photos));
+    }
+  };
+};
 export const getProfile = (userId) => {
   return (dispatch) => {
     usersAPI.getProfile(userId).then((data) => {

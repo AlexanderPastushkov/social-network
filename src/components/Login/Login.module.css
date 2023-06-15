@@ -1,12 +1,34 @@
 .formStyle {
   padding: 15px;
 }
-.form {
+.formBlock {
   display: inline-block;
   background-color: #94eff9;
   padding: 10px;
+  text-align: start;
 }
 .button {
   background-color: #70bfcd;
   padding: 7px;
+}
+.emailField {
+  margin: 10px;
+  border: 1px solid #333;
+}
+.passwordField {
+  margin: 10px;
+  border: 1px solid #333;
+}
+.loginForm {
+  text-align: center;
+  margin: 10px;
+  padding: 10px;
+}
+.emailBlock {
+  display: block;
+}
+.error {
+  color: red;
+  text-align: center;
+  margin-top: 5px;
 }

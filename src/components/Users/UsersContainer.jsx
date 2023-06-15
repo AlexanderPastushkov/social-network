@@ -11,6 +11,7 @@ import {
   getPortionSize,
   getTotalUsersCount,
   getUsers,
+  getUsersFilter,
 } from "../../redux/users-selectors";
 import Preloader from "../Common/Preloader/Pleloader";
 
@@ -20,8 +21,8 @@ class UsersContainer extends React.Component {
   //   super(props); если конструктор не делает ничего другого,кроме как делегирует полномочия Реакт компоненте то можно не писать
   // }
   componentDidMount() {
-    let { currentPage, pageSize } = this.props;
-    this.props.requestUsers(currentPage, pageSize);
+    let { currentPage, pageSize, filter } = this.props;
+    this.props.requestUsers(currentPage, pageSize, filter);
     // this.props.toggleIsFetching(true);
     // usersAPI
     //   .getUsers(this.props.currentPage, this.props.pageSize) //axios.create -> we make request from DAL
@@ -32,7 +33,12 @@ class UsersContainer extends React.Component {
     //   });
   }
   onPageChanged = (pageNumber) => {
-    this.props.requestUsers(pageNumber, this.props.pageSize);
+    const { pageSize, filter } = this.props;
+    this.props.requestUsers(pageNumber, pageSize, filter);
+  };
+  onFilterChanged = (filter) => {
+    let { pageSize } = this.props;
+    this.props.requestUsers(1, pageSize, filter);
   };
   render() {
     return (
@@ -43,6 +49,7 @@ class UsersContainer extends React.Component {
           pageSize={this.props.pageSize}
           currentPage={this.props.currentPage}
           onPageChanged={this.onPageChanged}
+          onFilterChanged={this.onFilterChanged}
           users={this.props.users}
           follow={this.props.follow}
           unfollow={this.props.unfollow}
@@ -61,6 +68,7 @@ let mapStateToProps = (state) => {
     currentPage: getCurrentPage(state),
     isFetching: getIsFetching(state),
     followingInProgress: getFollowingInProgress(state),
+    filter: getUsersFilter(state),
   };
 };
 export default compose(

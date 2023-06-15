@@ -4,6 +4,7 @@ const FOLLOW = "users/FOLLOW";
 const UNFOLLOW = "users/UNFOLLOW";
 const SET_USERS = "users/SET-USERS";
 const SET_CURRENT_PAGE = "users/SET_CURRENT_PAGE";
+const SET_FILTER = "users/SET_FILTER";
 const SET_TOTAL_COUNT = "users/SET_TOTAL_COUNT";
 const TOGGLE_IS_FETCHING = "users/TOGGLE_IS_FETCHING";
 const TOGGLE_IS_FOLLOWING_PROGRESS = "users/TOGGLE_IS_FOLLOWING_PROGRESS";
@@ -16,6 +17,10 @@ let initialState = {
   isFetching: true,
   followingInProgress: [],
   portionSize: 0,
+  filter: {
+    term: "",
+    friend: null,
+  },
 };
 
 const usersReducer = (state = initialState, action) => {
@@ -54,6 +59,8 @@ const usersReducer = (state = initialState, action) => {
       return { ...state, totalUsersCount: action.totalUsersCount };
     case TOGGLE_IS_FETCHING:
       return { ...state, isFetching: action.isFetching };
+    case SET_FILTER:
+      return { ...state, filter: action.payload };
     case TOGGLE_IS_FOLLOWING_PROGRESS:
       return {
         ...state,
@@ -98,6 +105,12 @@ export const setCurrentPage = (currentPage) => {
     currentPage,
   };
 };
+export const setFilter = (filter) => {
+  return {
+    type: SET_FILTER,
+    payload: { filter },
+  };
+};
 export const setTotalUsersCount = (totalUsersCount) => {
   return {
     type: SET_TOTAL_COUNT,
@@ -113,11 +126,18 @@ export const toggleIsFetching = (isFetching) => {
 };
 //========================================================================================================================================================
 //thunk-creators
-export const requestUsers = (page, pageSize) => {
+export const requestUsers = (page, pageSize, filter) => {
   return async (dispatch) => {
     dispatch(toggleIsFetching(true));
-    let data = await usersAPI.getUsers(page, pageSize); //axios.create -> we make request from DAL
     dispatch(setCurrentPage(page));
+    dispatch(setFilter(filter));
+    let data = await usersAPI.getUsers(
+      page,
+      pageSize,
+      filter.term,
+      filter.friend
+    ); //axios.create -> we make request from DAL
+
     dispatch(toggleIsFetching(false));
     dispatch(setUsers(data.items));
     dispatch(setTotalUsersCount(data.totalCount));

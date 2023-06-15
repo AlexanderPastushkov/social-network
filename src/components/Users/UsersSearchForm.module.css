@@ -1,0 +1,22 @@
+.submitButton {
+  background-color: #13cb8e;
+  transition: all 0.3s ease 0s;
+  padding: 8px;
+  border-radius: 5px;
+  margin-left: 5px;
+}
+.submitButton:hover {
+  background-color: #43f091;
+}
+.findForm {
+  text-align: center;
+  margin: 10px;
+  padding: 10px;
+}
+.selectField {
+  margin: 10px;
+  border: 1px solid #333;
+}
+.nameField {
+  border: 1px solid #333;
+}
