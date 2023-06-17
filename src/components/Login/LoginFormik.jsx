@@ -5,7 +5,7 @@ import { login, logout } from "../../redux/auth-reducer";
 import { connect } from "react-redux";
 import { Navigate } from "react-router-dom";
 
-const LoginFormik = ({ login, isAuth }) => {
+const LoginFormik = ({ login, isAuth, captchaUrl }) => {
   const loginFormValidateEmail = (values) => {
     const errors = {};
     if (!values.email) {
@@ -19,7 +19,7 @@ const LoginFormik = ({ login, isAuth }) => {
     if (!values) return "Required";
   };
   const submit = (values, { setSubmitting }) => {
-    login(values.email, values.password, values.rememberMe);
+    login(values.email, values.password, values.rememberMe, values.captcha);
     setSubmitting(false);
   };
   if (isAuth) {
@@ -29,7 +29,12 @@ const LoginFormik = ({ login, isAuth }) => {
     <div className={s.loginForm}>
       <Formik
         className={s.form}
-        initialValues={{ email: "", password: "", rememberMe: false }}
+        initialValues={{
+          email: "",
+          password: "",
+          rememberMe: false,
+          captcha: "",
+        }}
         validate={loginFormValidateEmail}
         onSubmit={submit}
       >
@@ -65,8 +70,12 @@ const LoginFormik = ({ login, isAuth }) => {
             </div>
             <label>Remember me</label>
             <Field type="checkbox" name="rememberMe" />
+            <div className={s.captchaBlock}>
+              {captchaUrl && <img src={captchaUrl} />}
+              {captchaUrl && <Field type="text" name="captcha" />}
+            </div>
             <button className={s.button} type="submit" disabled={isSubmitting}>
-              Submit
+              Login
             </button>
           </Form>
         )}
@@ -77,6 +86,7 @@ const LoginFormik = ({ login, isAuth }) => {
 
 const mapStateToProps = (state) => {
   return {
+    captchaUrl: state.auth.captchaUrl,
     isAuth: state.auth.isAuth,
   };
 };

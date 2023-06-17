@@ -20,7 +20,11 @@
 
 .status {
   margin-left: 20px;
+  margin-bottom: 10px;
   text-align: center;
+  font-size: 16px;
+  border: 1px solid #ffffff;
+  border-radius: 5px;
 }
 .userInfo {
   margin: 20px;
@@ -52,4 +56,28 @@ input[type="file"] {
 }
 .contacts {
   padding-left: 10px;
+  color: rgb(255, 255, 255);
+  margin-bottom: 5px;
+}
+label {
+  margin-right: 5px;
+}
+.button {
+  background-color: #026bc8;
+  padding: 5px;
+  transition: all 0.3s ease 0s;
+}
+.button:hover {
+  background-color: #044883;
+}
+
+.field {
+  padding: 5px;
+
+  border: 1px solid #03e2ff;
+  margin-left: 5px;
+  border-radius: 8px;
+}
+.fieldBlock {
+  margin-bottom: 5px;
 }

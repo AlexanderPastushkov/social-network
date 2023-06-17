@@ -21,12 +21,11 @@ const ProfileStatusWithHooks = (props) => {
   };
 
   return (
-    <div className={s.status}>
+    <div onDoubleClick={activateEditMode} className={s.status}>
       {
         !editMode && (
           <div>
-            <b>status: </b>{" "}
-            <span onDoubleClick={activateEditMode}>{props.status}</span>
+            <b>status: </b> <span>{props.status}</span>
           </div>
         ) //onDoubleClick we change span on input, useEffect help us update span if props.status changed
       }

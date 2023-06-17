@@ -1,8 +1,9 @@
 import MyPostsContainer from "./MyPosts/MyPostsContainer";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
+import s from "./Profile.module.css";
 const Profile = (props) => {
   return (
-    <div>
+    <div className={s.profile}>
       <ProfileInfo
         isOwner={props.isOwner}
         profile={props.profile}
@@ -11,7 +12,7 @@ const Profile = (props) => {
         updateStatus={props.updateStatus}
         saveProfile={props.saveProfile}
       />
-      <MyPostsContainer />
+      {/* <MyPostsContainer /> */}
     </div>
   );
 };

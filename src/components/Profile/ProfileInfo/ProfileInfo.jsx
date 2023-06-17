@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import noAva from "../../../images/NoAva.png";
 import Preloader from "../../Common/Preloader/Pleloader";
 import ProfileDataForm from "./ProfileDataForm/ProfileDataForm";
+import ProfileDataFormik from "./ProfileDataForm/ProfileDataFormik";
 import s from "./ProfileInfo.module.css";
 import ProfileStatusWithHooks from "./ProfileStatus/ProfileStatusWithHooks";
 const ProfileInfo = ({
@@ -19,9 +20,16 @@ const ProfileInfo = ({
   const onMainPhotoSelected = (e) => {
     if (e.target.files.length) savePhoto(e.target.files[0]);
   };
-  const onSubmit = (formData) => {
-    saveProfile(formData);
+  const onSubmit = (values, { setSubmitting }) => {
+    saveProfile(values).then(() => {
+      setSubmitting(false);
+      setEditMode(false);
+    });
   };
+  // const onSubmit = (formData) => {
+  //   console.log(formData);
+  // saveProfile(formData);
+  // };
   return (
     <div className={s.profileItems}>
       <div className={s.imagesFlex}>
@@ -44,7 +52,11 @@ const ProfileInfo = ({
         </div>
       </div>
       {editMode ? (
-        <ProfileDataForm onSubmit={onSubmit} profile={profile} />
+        <ProfileDataFormik
+          onSubmit={onSubmit}
+          profile={profile}
+          initialValues={profile}
+        />
       ) : (
         <ProfileData
           isOwner={isOwner}
@@ -63,7 +75,9 @@ const ProfileData = ({ profile, isOwner, goToEditMode }) => {
     <div className={s.userInfo}>
       {isOwner && (
         <div>
-          <button onClick={goToEditMode}>edit</button>
+          <button className={s.button} onClick={goToEditMode}>
+            edit
+          </button>
         </div>
       )}
       <div>
@@ -106,7 +120,7 @@ const ProfileData = ({ profile, isOwner, goToEditMode }) => {
 const Contact = ({ contactTitle, contctValue }) => {
   return (
     <div className={s.contacts}>
-      <b>{contactTitle}:</b>
+      <b>{contactTitle}: </b>
       {contctValue}
     </div>
   );
