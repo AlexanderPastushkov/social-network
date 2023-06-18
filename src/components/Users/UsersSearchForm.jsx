@@ -33,7 +33,7 @@ const UsersSearchForm = ({ onFilterChanged }) => {
               type="submit"
               disabled={isSubmitting}
             >
-              Find
+              SEARCH
             </button>
           </Form>
         )}
