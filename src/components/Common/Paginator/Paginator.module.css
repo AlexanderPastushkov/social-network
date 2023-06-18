@@ -1,11 +1,18 @@
 .selectedPage {
   font-weight: bold;
   cursor: pointer;
+  margin-right: 10px;
 }
 .nonSelected {
-  color: #37e3c9;
-  cursor: pointer;
+  color: #16ffdc;
+
+  transition: all 0.3s ease 0s;
+  margin-right: 10px;
 }
+.nonSelected:hover {
+  color: #000000;
+}
+
 .pagination {
   cursor: pointer;
   display: flex;
@@ -14,14 +21,16 @@
   align-items: center;
   justify-content: center;
   text-align: center;
+  transition: all 0.3s ease 0s;
 }
+
 .btn {
   padding: 10px;
-  background-color: #170398;
+  background-color: rgb(13, 125, 217);
   color: #fff;
   transition: all 0.3s ease 0s;
   border-radius: 5px;
 }
 .btn:hover {
-  background-color: #4630d3;
+  background-color: rgb(2, 91, 163);
 }

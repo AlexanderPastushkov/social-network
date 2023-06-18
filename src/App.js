@@ -1,28 +1,24 @@
 import React, { lazy, Suspense } from "react";
 import { connect } from "react-redux";
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import { compose } from "redux";
 import "./App.css";
 import Preloader from "./components/Common/Preloader/Pleloader";
-// import DialogsContainer from "./components/Dialogs/DialogsContainer";
-
 import HeaderContainer from "./components/Header/HeaderContainer";
-import Login from "./components/Login/Login";
 import LoginFormik from "./components/Login/LoginFormik";
 import Navbar from "./components/Navbar/Navbar";
 import ProfileContainer from "./components/Profile/ProfileContainer";
-// import UsersContainer from "./components/Users/UsersContainer";
 import { withRouter } from "./hoc/withRouter";
 import { initializeApp } from "./redux/app-reducer";
-const DialogsContainer = lazy(() =>
-  import("./components/Dialogs/DialogsContainer")
-); //our component misses bundle for the first render of our app, if we dont use it
+
 const UsersContainer = lazy(() => import("./components/Users/UsersContainer"));
-//получаем пропсы от родителя index.js
+//our component misses bundle for the first render of our app, if we dont use it
+
 class App extends React.Component {
   componentDidMount() {
     this.props.initializeApp();
   }
+
   render() {
     if (!this.props.initialized) {
       return <Preloader />;
@@ -34,13 +30,37 @@ class App extends React.Component {
         <div className="wrapper_content ">
           <Suspense fallback={"LOADING..."}>
             <Routes>
+              <Route exact path="/" element={<Navigate to={"/profile"} />} />
               <Route path="/profile/" element={<ProfileContainer />}>
                 <Route path=":userId" element={<ProfileContainer />} />{" "}
               </Route>
-              {/* <Route path="/dialogs" element={<LoginFormik />} /> */}
-
+              <Route
+                path="/dialogs"
+                element={
+                  <div style={{ height: "100vh" }}>
+                    this page is under construction
+                  </div>
+                }
+              />
+              <Route
+                path="/music"
+                element={
+                  <div style={{ height: "100vh" }}>
+                    this page is under construction
+                  </div>
+                }
+              />
+              <Route
+                path="/video"
+                element={
+                  <div style={{ height: "100vh" }}>
+                    this page is under construction
+                  </div>
+                }
+              />
               <Route path="/users" element={<UsersContainer />} />
               <Route path="/login" element={<LoginFormik />} />
+              <Route path="*" element={<div> 404 NOT FOUND</div>} />
             </Routes>
           </Suspense>
         </div>
@@ -51,6 +71,7 @@ class App extends React.Component {
 const mapStateToProps = (state) => {
   return {
     initialized: state.app.initialized,
+    globalError: state.app.globalError,
   };
 };
 export default compose(

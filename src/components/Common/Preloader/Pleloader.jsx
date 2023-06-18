@@ -3,9 +3,11 @@ import s from "./Pleloader.module.css";
 
 let Preloader = (props) => {
   return (
-    <div className={s.imagePreloader}>
-      <img src={preloader} />
-    </div>
+    <span className={s.loader}>
+      <span className={s.loaderBall}></span>
+      <span className={s.loaderBall}></span>
+      <span className={s.loaderBall}></span>
+    </span>
   );
 };
 export default Preloader;

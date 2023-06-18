@@ -31,17 +31,6 @@ const Paginator = ({
   return (
     <div>
       <div className={s.pagination}>
-        {/* {portionNumber > 1 && (
-          <button
-            className={s.btn}
-            onClick={() => {
-              onPageChanged(1);
-            }}
-          >
-            RETURN
-          </button>
-        )} */}
-
         {portionNumber > 1 && (
           <button
             className={s.btn}

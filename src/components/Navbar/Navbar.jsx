@@ -5,42 +5,34 @@ const activeLink = ({ isActive }) => (isActive ? s.active : s.item); //isActive 
 const Navbar = (props) => {
   return (
     <nav className={s.nav}>
-      <div>
-        <NavLink to="/profile/" className={activeLink}>
-          Profile
-        </NavLink>
-      </div>
-      <div>
-        <NavLink to="/dialogs" className={activeLink}>
-          Messages
-        </NavLink>
-      </div>
-      {/* <div>
-        <NavLink to="/news" className={activeLink}>
-          News
-        </NavLink>
-      </div> */}
-      <div>
-        <NavLink to="/users" className={activeLink}>
-          Find USERS
-        </NavLink>
-      </div>
-      {/* <div>
-        <NavLink to="/music" className={activeLink}>
-          Music
-        </NavLink>
-      </div> */}
-      {/* 
-      <div>
-        <NavLink to="/settings" className={activeLink}>
-          Settings
-        </NavLink>
-      </div>
-      <div className={s.navbar}>
-        <NavLink to="/friends" className={activeLink}>
-          Friends
-        </NavLink>
-      </div> */}
+      <ul>
+        <li>
+          <NavLink to="/profile/" className={activeLink}>
+            Profile
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/dialogs" className={activeLink}>
+            Messages
+          </NavLink>
+        </li>
+
+        <li>
+          <NavLink to="/users" className={activeLink}>
+            Users
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/music" className={activeLink}>
+            Music
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/video" className={activeLink}>
+            Video
+          </NavLink>
+        </li>
+      </ul>
     </nav>
   );
 };

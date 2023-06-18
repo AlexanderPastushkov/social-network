@@ -1,12 +1,12 @@
 .submitButton {
-  background-color: #13cb8e;
+  background-color: rgb(13, 125, 217);
   transition: all 0.3s ease 0s;
   padding: 8px;
   border-radius: 5px;
   margin-left: 5px;
 }
 .submitButton:hover {
-  background-color: #43f091;
+  background-color: rgb(1, 100, 181);
 }
 .findForm {
   text-align: center;

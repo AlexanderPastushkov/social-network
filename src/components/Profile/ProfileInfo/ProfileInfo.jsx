@@ -12,6 +12,7 @@ const ProfileInfo = ({
   isOwner,
   savePhoto,
   saveProfile,
+  messageError,
 }) => {
   const [editMode, setEditMode] = useState(false);
   if (!profile) {
@@ -49,23 +50,26 @@ const ProfileInfo = ({
             </div>
           )}
           <ProfileStatusWithHooks status={status} updateStatus={updateStatus} />
+          <div>{messageError}</div>
         </div>
       </div>
-      {editMode ? (
-        <ProfileDataFormik
-          onSubmit={onSubmit}
-          profile={profile}
-          initialValues={profile}
-        />
-      ) : (
-        <ProfileData
-          isOwner={isOwner}
-          profile={profile}
-          goToEditMode={() => {
-            setEditMode(true);
-          }}
-        />
-      )}
+      <div className={s.profileInfo}>
+        {editMode ? (
+          <ProfileDataFormik
+            onSubmit={onSubmit}
+            profile={profile}
+            initialValues={profile}
+          />
+        ) : (
+          <ProfileData
+            isOwner={isOwner}
+            profile={profile}
+            goToEditMode={() => {
+              setEditMode(true);
+            }}
+          />
+        )}
+      </div>
     </div>
   );
 };
@@ -83,7 +87,6 @@ const ProfileData = ({ profile, isOwner, goToEditMode }) => {
       <div>
         <b>Name : </b> {profile?.fullName}
       </div>
-      <div>{profile?.contacts?.vk}</div>
       <div>
         <b>Lookin for a job : </b>
         {profile?.lookingForAJob ? "yes" : "no"}{" "}
@@ -108,7 +111,7 @@ const ProfileData = ({ profile, isOwner, goToEditMode }) => {
             <Contact
               key={key}
               contactTitle={key}
-              contctValue={profile.contacts[key]}
+              contactValue={profile.contacts[key]}
             />
           );
         })}
@@ -117,11 +120,10 @@ const ProfileData = ({ profile, isOwner, goToEditMode }) => {
   );
 };
 
-const Contact = ({ contactTitle, contctValue }) => {
+const Contact = ({ contactTitle, contactValue }) => {
   return (
-    <div className={s.contacts}>
-      <b>{contactTitle}: </b>
-      {contctValue}
+    <div className={s.contact}>
+      {contactValue && `${contactTitle} :  ${contactValue}`}
     </div>
   );
 };

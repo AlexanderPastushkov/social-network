@@ -2,27 +2,60 @@
   padding: 15px;
 }
 .formBlock {
-  display: inline-block;
-  background-color: #94eff9;
-  padding: 10px;
-  text-align: start;
+  height: 520px;
+  width: 400px;
+  background-color: rgba(255, 255, 255, 0.13);
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 40px rgba(8, 7, 16, 0, 6);
+  padding: 50px 35px;
+}
+.loginLabel {
+  display: block;
+  margin-top: 30px;
+  font-size: 16px;
+  font-weight: 500;
 }
 .button {
-  background-color: #70bfcd;
-  padding: 7px;
+  margin-top: 50px;
+  width: 100%;
+  background-color: #025cd3;
+  color: #ffffff;
+  padding: 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 18px;
+  font-weight: 600;
+  transition: all 0.3s ease 0s;
 }
-.emailField {
-  margin: 10px;
-  border: 1px solid #333;
+.button:hover {
+  background-color: #63c2fc;
 }
-.passwordField {
-  margin: 10px;
-  border: 1px solid #333;
+.field {
+  display: block;
+  height: 50px;
+  width: 100%;
+  background-color: #fcfcfcbd;
+  border-radius: 3px;
+  padding: 0 10px;
+  margin-top: 8px;
+  font-size: 14px;
+  font-weight: 300;
 }
+.field::placeholder {
+  color: #111010;
+}
+
 .loginForm {
   text-align: center;
   margin: 10px;
   padding: 10px;
+  height: 100vh;
 }
 .emailBlock {
   display: block;

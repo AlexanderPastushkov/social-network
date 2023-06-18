@@ -1,18 +1,33 @@
 .active {
-  color: rgb(2, 32, 109);
+  color: #36f4da;
 }
 .item {
   color: #fff;
   transition: all 0.3s ease 0s;
+  text-decoration: none;
 }
-.item:hover {
-  color: rgb(239, 151, 151);
-}
+
 .nav {
   grid-area: n;
-  background-color: rgb(27, 148, 248);
-  /* height: 100vh; */
+  background-color: rgb(13, 125, 217);
+
+  padding-left: 10px;
+}
+ul li {
+  margin-top: 0.75em;
+  margin-bottom: 0.75em;
+  list-style-type: none;
+}
+ul {
   padding: 10px;
+  transition: all 0.3s ease 0s;
+}
+ul:hover .item {
+  color: #04215c;
+}
+ul:hover .item:hover {
+  color: #36f4da;
+  box-shadow: 0 2px 0 0 currentColor;
 }
 .navbar {
   margin-top: 20px;

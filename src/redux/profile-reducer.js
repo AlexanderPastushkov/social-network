@@ -1,4 +1,5 @@
 import { profileAPI, usersAPI } from "../api/api";
+import { catchGlobalError } from "./app-reducer";
 
 const ADD_POST = "profile-reducer/ADD-POST";
 const SET_USER_PROFILE = "profile-reducer/SET_USER_PROFILE";
@@ -85,6 +86,8 @@ export const updateStatus = (status) => {
       if (data.resultCode === 0) {
         dispatch(setStatus(status));
       }
+      console.log(data); //if (resultCode!==0)
+      dispatch(catchGlobalError(data.messages.join()));
     });
   };
 };

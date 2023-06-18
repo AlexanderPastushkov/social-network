@@ -8,7 +8,6 @@ const ProfileDataFormik = ({ onSubmit, initialValues, profile }) => {
   return (
     <div className={s.loginForm}>
       <Formik
-        className={s.form}
         initialValues={initialValues}
         validate={profileFormValidate}
         onSubmit={onSubmit}
@@ -25,31 +24,35 @@ const ProfileDataFormik = ({ onSubmit, initialValues, profile }) => {
         }) => (
           <Form className={s.formBlock}>
             <div className={s.fieldBlock}>
-              <label>Name</label>
+              <label className={s.profileInfoLabel}>Name</label>
               <Field className={s.field} type="text" name="fullName" />
             </div>
+
             <div className={s.fieldBlock}>
-              <label>Lookin for a job</label>
-              <Field
-                className={s.field}
-                type="checkbox"
-                name="lookingForAJob"
-              />
-            </div>
-            <div className={s.fieldBlock}>
-              <label>My professional skills</label>
+              <label className={s.profileInfoLabel}>
+                My professional skills
+              </label>
               <Field
                 className={s.field}
                 type="textarea"
                 name="lookingForAJobDescription"
               />
             </div>
+
             <div className={s.fieldBlock}>
-              <label>About me</label>
+              <label className={s.profileInfoLabel}>About me</label>
               <Field className={s.field} type="textarea" name="aboutMe" />
             </div>
             <div>
-              <label>Contacts:</label>
+              <label className={s.profileInfoLabel}>Lookin for a job</label>
+              <Field
+                className={s.field}
+                type="checkbox"
+                name="lookingForAJob"
+              />
+            </div>
+            <div>
+              <label className={s.profileInfoLabel}>Contacts:</label>
               {Object.keys(profile.contacts).map((key, index) => {
                 return (
                   <div key={index} className={s.contacts}>

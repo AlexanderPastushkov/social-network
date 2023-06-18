@@ -1,4 +1,3 @@
-import { stopSubmit } from "redux-form";
 import { authAPI, securityAPI } from "../api/api";
 
 const SET_USER_DATA = "auth-Reducer/SET_USER_DATA";
@@ -59,11 +58,6 @@ export const login = (email, password, rememberMe, captcha) => {
       if (response.data.resultCode === 10) {
         dispatch(getCaptchaUrl());
       }
-      // let message =
-      //   response.data.messages.length > 0
-      //     ? response.data.messages
-      //     : "some error";
-      // dispatch(stopSubmit("login", { _error: message })); //login --->unique name of our form
     }
   };
 };

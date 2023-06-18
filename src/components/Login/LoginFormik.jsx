@@ -50,16 +50,16 @@ const LoginFormik = ({ login, isAuth, captchaUrl }) => {
         }) => (
           <Form className={s.formBlock}>
             <div className={s.emailBlock}>
-              <label>Email</label>
-              <Field className={s.emailField} type="email" name="email" />
+              <label className={s.loginLabel}>Email</label>
+              <Field className={s.field} type="email" name="email" />
               <p className={s.error}>
                 {errors.email && touched.email && errors.email}
               </p>
             </div>
             <div>
-              <label>Password</label>
+              <label className={s.loginLabel}>Password</label>
               <Field
-                className={s.passwordField}
+                className={s.field}
                 type="password"
                 name="password"
                 validate={loginFormValidatePassword}
@@ -68,7 +68,7 @@ const LoginFormik = ({ login, isAuth, captchaUrl }) => {
                 {errors.password && touched.password && errors.password}
               </p>
             </div>
-            <label>Remember me</label>
+            <label className={s.loginLabel}>Remember me</label>
             <Field type="checkbox" name="rememberMe" />
             <div className={s.captchaBlock}>
               {captchaUrl && <img src={captchaUrl} />}

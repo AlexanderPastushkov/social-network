@@ -1,5 +1,6 @@
-.profile_items {
+.profileItems {
   padding: 10px;
+  display: flex;
 }
 .image {
   width: 300px;
@@ -14,7 +15,6 @@
 .ava {
   width: 200px;
   border-radius: 5px;
-
   border-radius: 5px;
 }
 
@@ -25,13 +25,16 @@
   font-size: 16px;
   border: 1px solid #ffffff;
   border-radius: 5px;
+  background-color: rgb(13, 125, 217);
+  cursor: pointer;
+  padding: 7px;
 }
 .userInfo {
   margin: 20px;
 }
 .imagesFlex {
   display: flex;
-
+  margin-right: 30px;
   align-items: center;
 }
 input[type="file"] {
@@ -52,23 +55,34 @@ input[type="file"] {
 .avaItems {
   text-align: center;
 }
-.chooseBtn {
-}
+
 .contacts {
-  padding-left: 10px;
   color: rgb(255, 255, 255);
   margin-bottom: 5px;
+  display: flex;
+  justify-content: flex-end;
 }
-label {
+.contact {
+  padding-left: 10px;
+}
+.profileInfoLabel {
   margin-right: 5px;
 }
+.fieldBlock {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
 .button {
-  background-color: #026bc8;
-  padding: 5px;
+  background-color: rgb(13, 125, 217);
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  width: 80px;
   transition: all 0.3s ease 0s;
 }
 .button:hover {
-  background-color: #044883;
+  background-color: rgb(12, 110, 191);
 }
 
 .field {
@@ -77,7 +91,4 @@ label {
   border: 1px solid #03e2ff;
   margin-left: 5px;
   border-radius: 8px;
-}
-.fieldBlock {
-  margin-bottom: 5px;
 }

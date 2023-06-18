@@ -45,7 +45,7 @@ export const usersAPI = {
     });
   },
   getProfile(userId) {
-    console.log("Obsolete method. Please use profileAPI object");
+    // console.log("Obsolete method. Please use profileAPI object");
     return profileAPI.getProfile(userId);
   },
 };

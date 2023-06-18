@@ -1,23 +1,25 @@
-.logo {
-  width: 50px;
+.loginBlock {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+.login {
+  margin: 15px;
   padding: 10px;
 }
-.loginBlock {
-  float: right;
-  padding-bottom: 20px;
-}
 .btn {
-  background-color: #04399c;
-  padding: 5px;
-  margin: 5px;
+  background-color: rgb(14, 134, 231);
+  padding: 10px;
+  margin: 15px;
   transition: all 0.3s ease 0s;
+  border-radius: 5px;
+  width: 80px;
 }
 .btn:hover {
   background-color: #80aff1;
 }
-.loginItems {
-  margin-bottom: 10px;
+
+.userName {
+  font-size: 18px;
+  font-weight: 800;
 }
-/* .loginItems {
-  padding: 15px;
-} */
