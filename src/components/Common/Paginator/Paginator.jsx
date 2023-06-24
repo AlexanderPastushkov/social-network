@@ -6,7 +6,7 @@ const Paginator = ({
   currentPage,
   onPageChanged,
   totalItemsCount,
-  portionSize = 10, //quantity of pages what we see on desctop
+  portionSize = 5, //quantity of pages what we see on desctop
 }) => {
   let pagesCount = Math.ceil(
     totalItemsCount / pageSize // округляем до большего чтоб все страницы отображались

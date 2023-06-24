@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import Paginator from "../Common/Paginator/Paginator";
 import User from "./User";
 import s from "./Users.module.css";
 import UsersSearchForm from "./UsersSearchForm";
+import img from "../../images/search.png";
 
 const Users = ({
   currentPage,
@@ -14,9 +15,24 @@ const Users = ({
   portionSize,
   ...restProps
 }) => {
+  const [searchingMode, setSearchingMode] = useState(false);
+
   return (
     <>
-      <UsersSearchForm onFilterChanged={onFilterChanged} />
+      {searchingMode ? (
+        <UsersSearchForm onFilterChanged={onFilterChanged} />
+      ) : (
+        <div className={s.searchButton}>
+          <button
+            onClick={() => {
+              setSearchingMode(true);
+            }}
+          >
+            <img className={s.imgSearch} src={img} alt="search" />
+          </button>
+        </div>
+      )}
+
       <Paginator
         pageSize={pageSize}
         currentPage={currentPage}

@@ -4,6 +4,7 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import { compose } from "redux";
 import "./App.css";
 import Preloader from "./components/Common/Preloader/Pleloader";
+import Footer from "./components/Footer/Footer";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import LoginFormik from "./components/Login/LoginFormik";
 import Navbar from "./components/Navbar/Navbar";
@@ -27,6 +28,7 @@ class App extends React.Component {
       <div className="wrapper">
         <HeaderContainer />
         <Navbar />
+
         <div className="wrapper_content ">
           <Suspense fallback={"LOADING..."}>
             <Routes>
@@ -64,6 +66,7 @@ class App extends React.Component {
             </Routes>
           </Suspense>
         </div>
+        <Footer />
       </div>
     );
   }

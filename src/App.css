@@ -54,8 +54,9 @@ h6 {
   display: grid;
   grid-template-areas:
     "h h"
-    "n c";
-  grid-template-rows: 60px 1fr;
+    "n c"
+    "f f";
+  grid-template-rows: 60px 7fr 100px;
   grid-template-columns: 2fr 10fr;
   color: #fff;
 }
@@ -67,4 +68,9 @@ h6 {
 .header {
   grid-area: h;
   background-color: rgb(10, 97, 168);
+}
+
+.footer {
+  grid-area: f;
+  background-color: rgb(23, 133, 223);
 }

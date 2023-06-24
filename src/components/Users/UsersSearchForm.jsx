@@ -1,5 +1,5 @@
 import { Field, Form, Formik } from "formik";
-import React from "react";
+import React, { useState } from "react";
 import s from "./UsersSearchForm.module.css";
 
 const usersSearchFormValidate = (values) => {
@@ -21,13 +21,18 @@ const UsersSearchForm = ({ onFilterChanged }) => {
         onSubmit={submit}
       >
         {({ isSubmitting }) => (
-          <Form>
-            <Field className={s.nameField} type="text" name="term" />
-            <Field className={s.selectField} name="friend" as="select">
-              <option value="null">all</option>
-              <option value="true">only followed</option>
-              <option value="false">only unfollowed</option>
-            </Field>
+          <Form className={s.form}>
+            <div>
+              {" "}
+              <Field className={s.nameField} type="text" name="term" />
+            </div>
+            <div>
+              <Field className={s.selectField} name="friend" as="select">
+                <option value="null">all</option>
+                <option value="true">only followed</option>
+                <option value="false">only unfollowed</option>
+              </Field>
+            </div>
             <button
               className={s.submitButton}
               type="submit"

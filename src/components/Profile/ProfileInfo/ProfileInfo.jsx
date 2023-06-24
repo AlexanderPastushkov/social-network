@@ -33,26 +33,27 @@ const ProfileInfo = ({
   // };
   return (
     <div className={s.profileItems}>
-      <div className={s.imagesFlex}>
-        <div className={s.avaItems}>
+      <div className={s.avaItems}>
+        <div className={s.avatar}>
           <img
             className={s.ava}
             src={!profile?.photos?.large ? noAva : profile.photos.large}
             alt="photo"
           />
-
-          {isOwner && (
-            <div className={s.chooseBtn}>
-              <label className={s.customFileUpload}>
-                <input onChange={onMainPhotoSelected} type="file" />
-                Upload Photo
-              </label>
-            </div>
-          )}
-          <ProfileStatusWithHooks status={status} updateStatus={updateStatus} />
-          <div>{messageError}</div>
         </div>
+
+        {isOwner && (
+          <div className={s.chooseBtn}>
+            <label className={s.customFileUpload}>
+              <input onChange={onMainPhotoSelected} type="file" />
+              Upload photo
+            </label>
+          </div>
+        )}
+        <ProfileStatusWithHooks status={status} updateStatus={updateStatus} />
+        <div>{messageError}</div>
       </div>
+
       <div className={s.profileInfo}>
         {editMode ? (
           <ProfileDataFormik

@@ -1,3 +1,9 @@
+.form {
+  display: flex;
+
+  justify-content: center;
+}
+
 .submitButton {
   background-color: rgb(13, 125, 217);
   transition: all 0.3s ease 0s;
@@ -13,11 +19,36 @@
   text-align: center;
   margin: 10px;
   padding: 10px;
+
+  border-radius: 5px;
 }
 .selectField {
-  margin: 10px;
+  margin-left: 5px;
+  border-radius: 5px;
+  margin-bottom: 10px;
   border: 1px solid #333;
+  background-color: #b7f5ff;
 }
 .nameField {
   border: 1px solid #333;
+  background-color: #b7f5ff;
+  border-radius: 5px;
+}
+@media (max-width: 767px) {
+  .findForm {
+    display: flex;
+    margin: 10px;
+    padding: 10px;
+    align-items: center;
+    justify-content: center;
+  }
+}
+@media (max-width: 500px) {
+  .findForm {
+    margin: 5px;
+    padding: 5px;
+  }
+  .form {
+    display: block;
+  }
 }

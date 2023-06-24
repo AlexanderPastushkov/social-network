@@ -1,9 +1,11 @@
 .profileItems {
   display: flex;
 }
-
+.avatar {
+  max-width: 300px;
+}
 .ava {
-  width: 300px;
+  width: 100%;
 }
 
 .status {
@@ -20,11 +22,7 @@
 .userInfo {
   margin: 20px;
 }
-.imagesFlex {
-  display: flex;
-  margin-right: 30px;
-  align-items: center;
-}
+
 input[type="file"] {
   display: none;
 }
@@ -64,6 +62,10 @@ input[type="file"] {
 .profileInfoLabel {
   margin-right: 5px;
 }
+
+.formBlock {
+  min-width: 100px;
+}
 .fieldBlock {
   display: flex;
   justify-content: space-between;
@@ -87,4 +89,54 @@ input[type="file"] {
   border: 1px solid #03e2ff;
   margin-left: 5px;
   border-radius: 8px;
+}
+@media (max-width: 767px) {
+  .fieldBlock {
+    display: block;
+  }
+  .profileItems {
+    display: block;
+  }
+  .profileInfo {
+    max-width: 300px;
+  }
+
+  .contacts {
+    display: block;
+  }
+  .avaItems {
+    text-align: start;
+  }
+  .status {
+    max-width: 300px;
+    margin-left: 0px;
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 16px;
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+    background-color: rgb(13, 125, 217);
+    cursor: pointer;
+    padding: 7px;
+  }
+}
+@media (max-width: 500px) {
+  .fieldBlock {
+    display: block;
+  }
+  .profileItems {
+    display: block;
+  }
+  .profileInfo {
+    max-width: 200px;
+  }
+  .status {
+    display: inline-block;
+  }
+  .field {
+    max-width: 100px;
+  }
+  .status {
+    display: inline-block;
+  }
 }
