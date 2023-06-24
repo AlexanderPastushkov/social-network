@@ -66,7 +66,7 @@ class App extends React.Component {
             </Routes>
           </Suspense>
         </div>
-        <Footer />
+        {/* <Footer /> */}
       </div>
     );
   }
