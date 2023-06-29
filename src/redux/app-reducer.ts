@@ -1,14 +1,19 @@
-import { getAuth } from "./auth-reducer";
+import { getAuth } from "./auth-reducer.ts";
 
 const INITIALIZED_SUCCESSFULLY = "app-reducer/INITIALIZED_SUCCESSFULLY";
 const CATCH_GLOBAL_ERROR = "app-reducer/CATCH_GLOBAL_ERROR";
 
-let initialState = {
+export type InitialStateType = {
+  initialized: boolean;
+  messageError: null | string;
+};
+
+let initialState: InitialStateType = {
   initialized: false,
   messageError: null,
 };
 
-const appReducer = (state = initialState, action) => {
+const appReducer = (state = initialState, action: any): InitialStateType => {
   switch (action.type) {
     case INITIALIZED_SUCCESSFULLY:
       return {
@@ -26,12 +31,23 @@ const appReducer = (state = initialState, action) => {
 };
 //========================================================================================================================================================
 //action-creator
-export const initializedSuccess = () => {
+type InitializedSuccessActionType = {
+  type: typeof INITIALIZED_SUCCESSFULLY;
+  //"app-reducer/INITIALIZED_SUCCESSFULLY"<--- nothing except this
+};
+
+type CatchGlobalErrorMessageActionType = {
+  type: typeof CATCH_GLOBAL_ERROR; //"app-reducer/CATCH_GLOBAL_ERROR"<--- nothing except this
+  messageError: string | null;
+};
+export const initializedSuccess = (): InitializedSuccessActionType => {
   return {
     type: INITIALIZED_SUCCESSFULLY,
   };
 };
-export const catchGlobalErrorMessage = (messageError) => {
+export const catchGlobalErrorMessage = (
+  messageError: string | null
+): CatchGlobalErrorMessageActionType => {
   return {
     type: CATCH_GLOBAL_ERROR,
     messageError,

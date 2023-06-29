@@ -1,5 +1,5 @@
 import { profileAPI, usersAPI } from "../api/api";
-import { catchGlobalError } from "./app-reducer";
+import { catchGlobalError } from "./app-reducer.ts";
 
 const ADD_POST = "profile-reducer/ADD-POST";
 const SET_USER_PROFILE = "profile-reducer/SET_USER_PROFILE";

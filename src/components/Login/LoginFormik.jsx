@@ -1,7 +1,7 @@
 import React from "react";
 import { Field, Form, Formik } from "formik";
 import s from "./Login.module.css";
-import { login, logout } from "../../redux/auth-reducer";
+import { login, logout } from "../../redux/auth-reducer.ts";
 import { connect } from "react-redux";
 import { Navigate } from "react-router-dom";
 
