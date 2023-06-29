@@ -8,7 +8,7 @@ import authReducer from "./auth-reducer.ts";
 import dialogsReducer from "./dialogs-reducer";
 import musicReducer from "./music-reducer";
 import newsReducer from "./news-reducer";
-import profileReducer from "./profile-reducer";
+import profileReducer from "./profile-reducer.ts";
 import sidebarReducer from "./sidebar-reducer";
 import usersReducer from "./users-reducer";
 import thunkMiddleware from "redux-thunk";

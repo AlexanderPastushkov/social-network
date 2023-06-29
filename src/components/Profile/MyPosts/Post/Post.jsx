@@ -1,12 +1,14 @@
 import s from "./Post.module.css";
-import patrick from "../../../../images/patrick.jpg";
+import patrick from "../../../../images/03.jpg";
+import CounterWithHooks from "./CounterWithHooks";
+
 const Post = ({ mes, like }) => {
   return (
     <div className={s.item}>
       <img className={s.img} src={patrick} alt="pic" />
-      {mes}
+      <p> {mes}</p>
       <div>
-        <span>like {like}</span>
+        <CounterWithHooks />
       </div>
     </div>
   );

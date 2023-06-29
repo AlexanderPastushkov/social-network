@@ -3,7 +3,7 @@ import { getAuth } from "./auth-reducer.ts";
 const INITIALIZED_SUCCESSFULLY = "app-reducer/INITIALIZED_SUCCESSFULLY";
 const CATCH_GLOBAL_ERROR = "app-reducer/CATCH_GLOBAL_ERROR";
 
-export type InitialStateType = {
+type InitialStateType = {
   initialized: boolean;
   messageError: null | string;
 };

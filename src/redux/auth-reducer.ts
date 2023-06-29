@@ -3,23 +3,16 @@ import { authAPI, securityAPI } from "../api/api";
 const SET_USER_DATA = "auth-Reducer/SET_USER_DATA";
 const GET_CAPTCHA_URL_SUCCESS = "auth-Reducer/GET_CAPTCHA_URL_SUCCESS";
 
-export type InitialStateType = {
-  id: number | null;
-  email: string | null;
-  login: string | null;
-  isAuth: boolean;
-  captchaUrl: string | null;
-};
-
-let initialState: InitialStateType = {
-  id: null,
-  email: null,
-  login: null,
+let initialState = {
+  id: null as number | null,
+  email: null as string | null,
+  login: null as string | null,
   isAuth: false,
-  captchaUrl: null, //if null, then captcha is not required
+  captchaUrl: null as string | null, //if null, then captcha is not required
 };
+export type InitialStateType = typeof initialState;
 
-const authReducer = (state = initialState, action): InitialStateType => {
+const authReducer = (state = initialState, action: any): InitialStateType => {
   switch (action.type) {
     case SET_USER_DATA:
     case GET_CAPTCHA_URL_SUCCESS:
@@ -72,7 +65,7 @@ export const getCaptchaUrlSuccess = (
 };
 
 export const getAuth = () => {
-  return async (dispatch) => {
+  return async (dispatch: any) => {
     let response = await authAPI.me();
     if (response.data.resultCode === 0) {
       let { id, login, email } = response.data.data; //здесь порядок смотрим в консоли как пришли данные
@@ -86,7 +79,7 @@ export const login = (
   rememberMe: boolean,
   captcha: string | null | undefined
 ) => {
-  return async (dispatch) => {
+  return async (dispatch: any) => {
     let response = await authAPI.login(email, password, rememberMe, captcha);
 
     console.log(response);
@@ -102,7 +95,7 @@ export const login = (
 };
 
 export const getCaptchaUrl = () => {
-  return async (dispatch) => {
+  return async (dispatch: any) => {
     const response = await securityAPI.getCaptchaUrl();
     const captchaUrl = response.data.url;
     dispatch(getCaptchaUrlSuccess(captchaUrl));
@@ -110,7 +103,7 @@ export const getCaptchaUrl = () => {
 };
 
 export const logout = () => {
-  return async (dispatch) => {
+  return async (dispatch: any) => {
     let response = await authAPI.logout();
     if (response.data.resultCode === 0) {
       dispatch(setUserData(null, null, null, false));

@@ -9,7 +9,7 @@ import {
   savePhoto,
   saveProfile,
   updateStatus,
-} from "../../redux/profile-reducer";
+} from "../../redux/profile-reducer.ts";
 import Profile from "./Profile";
 
 class ProfileContainer extends React.Component {

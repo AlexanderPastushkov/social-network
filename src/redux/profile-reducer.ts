@@ -6,19 +6,51 @@ const SET_USER_PROFILE = "profile-reducer/SET_USER_PROFILE";
 const SET_STATUS = "profile-reducer/SET_STATUS";
 const SAVE_PHOTO_SUCCESS = "profile-reducer/SAVE_PHOTO_SUCCESS";
 
+type PostType = {
+  id: number;
+  message: string;
+  likeCount: number;
+};
+
+type ProfileType = {
+  userId: number;
+  lookingForAJob: boolean;
+  lookingForAJobDescription: string;
+  fullName: string;
+  contacts: ContactsType;
+  photos: PhotosType;
+  aboutMe: string;
+};
+
+type PhotosType = {
+  small: string | null;
+  large: string | null;
+};
+type ContactsType = {
+  github: string;
+  vk: string;
+  facebook: string;
+  instagram: string;
+  twitter: string;
+  website: string;
+  youtube: string;
+  mainLink: string;
+};
 let initialState = {
   postsData: [
     { id: 1, message: "Hi , it is my first post", likeCount: 120000 },
     { id: 2, message: "Hi , it is my second post", likeCount: 564 },
     { id: 3, message: "Hi , it is my third post", likeCount: 321 },
     { id: 4, message: "Hi , it is my four post", likeCount: 890 },
-  ],
+  ] as Array<PostType>,
 
-  profile: null,
+  profile: null as ProfileType | null,
   status: "",
 };
 
-const profileReducer = (state = initialState, action) => {
+export type InitialStateType = typeof initialState;
+
+const profileReducer = (state = initialState, action): InitialStateType => {
   switch (action.type) {
     case ADD_POST: {
       let newPost = {
@@ -53,7 +85,12 @@ export const setStatus = (status) => {
     status: status,
   };
 };
-export const addPost = (post) => {
+
+type AddPostCreatorType = {
+  type: typeof ADD_POST;
+  post: string;
+};
+export const addPost = (post: string): AddPostCreatorType => {
   return {
     type: ADD_POST,
     post,
