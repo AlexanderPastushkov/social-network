@@ -1,7 +1,15 @@
 import React, { useEffect, useState } from "react";
 import s from "./Paginator.module.css";
 
-const Paginator = ({
+type PropsType = {
+  pageSize: number;
+  currentPage: number;
+  onPageChanged: (pageNumber: number) => void;
+  totalItemsCount: number;
+  portionSize?: number;
+};
+
+const Paginator: React.FC<PropsType> = ({
   pageSize,
   currentPage,
   onPageChanged,
@@ -11,7 +19,7 @@ const Paginator = ({
   let pagesCount = Math.ceil(
     totalItemsCount / pageSize // округляем до большего чтоб все страницы отображались
   );
-  let pages = [];
+  let pages: Array<number> = [];
   for (let i = 1; i <= pagesCount; i++) {
     pages.push(i); //create empty array and push count of pages in?start with 1
   }

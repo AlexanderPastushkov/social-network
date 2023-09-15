@@ -1,8 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 import { compose } from "redux";
-import { withAuthRedirect } from "../../hoc/withAuthRedirect";
-import { withRouter } from "../../hoc/withRouter";
+import { withAuthRedirect } from "../../Hoc/withAuthRedirect";
+import { withRouter } from "../../Hoc/withRouter";
 import {
   getProfile,
   getStatus,

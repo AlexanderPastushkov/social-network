@@ -1,11 +1,22 @@
 import React, { useState } from "react";
-import Paginator from "../Common/Paginator/Paginator";
-import User from "./User";
+import Paginator from "../Common/Paginator/Paginator.tsx";
+import User from "./User.jsx";
 import s from "./Users.module.css";
-import UsersSearchForm from "./UsersSearchForm";
+import UsersSearchForm from "./UsersSearchForm.jsx";
 import img from "../../images/search.png";
+import { FilterType, UserType } from "../../types/types.js";
 
-const Users = ({
+type PropsType = {
+  pageSize: number;
+  currentPage: number;
+  onPageChanged: (pageNumber: number) => void;
+  totalUsersCount: number;
+  portionSize?: number;
+  users: Array<UserType>;
+  onFilterChanged: (values: FilterType) => void;
+};
+
+const Users: React.FC<PropsType> = ({
   currentPage,
   totalUsersCount,
   pageSize,

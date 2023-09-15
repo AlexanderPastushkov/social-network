@@ -19,3 +19,22 @@ root.render(
     </Provider>
   </HashRouter>
 );
+
+const fruits = ["Banana", "Orange", "Apple", "Mango", "Orange"];
+const vegetables = ["tomato", "potato", "cucumber", "cabbage", "onion"];
+let size = fruits.length;
+const filteredArray = fruits.filter((el) => el === "Orange");
+const newArray = fruits.concat(vegetables);
+const newCreatedArray = [...vegetables, ...fruits];
+
+const isTrue = newArray.includes("Banana");
+const stringFruits = newArray.join("^");
+const products = stringFruits.split("");
+
+const myArr = [
+  [1, 2],
+  [3, 4],
+  [5, 6],
+];
+const newMyArr = myArr.flat();
+console.log(newMyArr);

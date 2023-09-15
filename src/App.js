@@ -9,7 +9,7 @@ import HeaderContainer from "./components/Header/HeaderContainer";
 import LoginFormik from "./components/Login/LoginFormik";
 import Navbar from "./components/Navbar/Navbar";
 import ProfileContainer from "./components/Profile/ProfileContainer";
-import { withRouter } from "./hoc/withRouter";
+import { withRouter } from "./Hoc/withRouter";
 import { initializeApp } from "./redux/app-reducer.ts";
 
 const UsersContainer = lazy(() => import("./components/Users/UsersContainer"));

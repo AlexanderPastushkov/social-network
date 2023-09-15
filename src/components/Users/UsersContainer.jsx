@@ -1,8 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 import { compose } from "redux";
-import { withAuthRedirect } from "../../hoc/withAuthRedirect";
-import { follow, requestUsers, unfollow } from "../../redux/users-reducer";
+import { withAuthRedirect } from "../../Hoc/withAuthRedirect";
+import { follow, requestUsers, unfollow } from "../../redux/users-reducer.ts";
 import {
   getCurrentPage,
   getFollowingInProgress,
@@ -15,7 +15,7 @@ import {
 } from "../../redux/users-selectors";
 import Preloader from "../Common/Preloader/Pleloader";
 
-import Users from "./Users";
+import Users from "./Users.tsx";
 class UsersContainer extends React.Component {
   // constructor(props) {
   //   super(props); если конструктор не делает ничего другого,кроме как делегирует полномочия Реакт компоненте то можно не писать

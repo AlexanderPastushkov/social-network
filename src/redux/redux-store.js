@@ -10,14 +10,14 @@ import musicReducer from "./music-reducer";
 import newsReducer from "./news-reducer";
 import profileReducer from "./profile-reducer.ts";
 import sidebarReducer from "./sidebar-reducer";
-import usersReducer from "./users-reducer";
+import usersReducer from "./users-reducer.ts";
 import thunkMiddleware from "redux-thunk";
 import { reducer as formReducer } from "redux-form";
 import appReducer from "./app-reducer.ts";
 
 let reducers = combineReducers({
   profilePage: profileReducer,
-  dialogsPage: dialogsReducer,
+  // dialogsPage: dialogsReducer,
   sidebar: sidebarReducer,
   newsPage: newsReducer,
   usersPage: usersReducer,

@@ -1,7 +1,7 @@
 import { authAPI, securityAPI } from "../api/api";
 
-const SET_USER_DATA = "auth-Reducer/SET_USER_DATA";
-const GET_CAPTCHA_URL_SUCCESS = "auth-Reducer/GET_CAPTCHA_URL_SUCCESS";
+const SET_USER_DATA: string = "auth-Reducer/SET_USER_DATA";
+const GET_CAPTCHA_URL_SUCCESS: string = "auth-Reducer/GET_CAPTCHA_URL_SUCCESS";
 
 let initialState = {
   id: null as number | null,
